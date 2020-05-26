@@ -1,0 +1,160 @@
+/* 
+  Localizable.strings
+  GenPerson
+
+  Created by Charles on 05/05/20.
+  Copyright © 2020 cwilliamszd. All rights reserved.
+*/
+
+common_date_format = "dd/MM/yyyy";
+common_format_to_date = "yyyy-MM-dd";
+
+// MARK: - English
+common_random_eng = "Random";
+common_generate_eng = "Generate";
+common_new_eng = "Create";
+common_all_eng = "All";
+
+phone_prefix_eng = "+1";
+
+person_title_eng = "Person";
+person_name_eng = "Name";
+person_document_eng = "Document (CPF Brazil)";
+person_date_of_birth_eng = "Date of Birth";
+person_sex_of_birth_eng = "Biological Sex";
+person_group_ethnic_eng = "Ethnic Group";
+person_contact_eng = "Contact";
+person_relationship_eng = "Relationship";
+person_phone_eng = "Phone";
+person_email_eng = "E-mail";
+person_age_year_eng = "%d year(s)";
+person_age_month_eng = "%d moth(s)";
+person_age_day_eng = "%d day(s)";
+
+history_title_eng = "History";
+
+button_create_eng = "Create";
+button_settings_eng = "Settings";
+
+settings_title_eng = "Settings";
+
+gender_title_eng = "Biological Sex";
+gender_female_eng = "Female";
+gender_masculine_eng = "Masculine";
+
+ethnic_group_white_eng = "White";
+ethnic_group_black_eng = "Black";
+ethnic_group_brown_eng = "Brown";
+ethnic_group_red_eng = "Red";
+ethnic_group_yellow_eng = "Yellow";
+
+relationship_mother_eng = "Mother";
+relationship_sister_eng = "Sister";
+relationship_daughter_eng = "Daughter";
+   
+relationship_father_eng = "Father";
+relationship_brother_eng = "Brother";
+relationship_son_eng = "Son";
+   
+relationship_friend_eng = "Friend";
+relationship_spouse_eng = "Spouse";
+relationship_partner_eng = "Partner";
+relationship_parent_eng = "Parent";
+relationship_other_eng = "Other";
+
+nationality_title_eng = "Nationality";
+nationality_usa_eng = "American";
+nationality_br_eng = "Brazilian";
+
+age_range_title_eng = "Age Range";
+age_range_older_eng = "Older";
+age_range_minor_eng = "Minor";
+age_range_baby_eng = "Baby";
+age_range_child_eng = "Child";
+age_range_teen_eng = "Adolescent";
+age_range_young_eng = "Young";
+age_range_adult_eng = "Adult";
+age_range_elderly_eng = "Elderly";
+
+idiom_title_eng = "Language";
+idiom_english_eng = "English";
+idiom_portuguese_eng = "Portuguese";
+
+filter_title_eng = "Filters";
+
+search_placeholder_eng = "Search by name";
+
+// MARK: - Portuguese
+common_random_pt = "Aleatório";
+common_generate_pt = "Gerar";
+common_new_pt = "Criar";
+common_all_pt = "Todos";
+
+phone_prefix_pt = "+55";
+
+person_title_pt = "Pessoa";
+person_name_pt = "Nome";
+person_document_pt = "Documento (CPF Brasil)";
+person_date_of_birth_pt = "Data de Nascimento";
+person_sex_of_birth_pt = "Sexo Biológico";
+person_group_ethnic_pt = "Grupo Étnico";
+person_contact_pt = "Contato";
+person_relationship_pt = "Relação";
+person_phone_pt = "Telefone";
+person_email_pt = "E-mail";
+person_age_year_pt = "%d ano(s)";
+person_age_month_pt = "%d mês(es)";
+person_age_day_pt = "%d dia(s)";
+
+history_title_pt= "Histórico";
+
+button_create_pt = "Criar";
+button_settings_pt = "Configurações";
+
+settings_title_pt = "Configurações";
+
+gender_title_pt = "Sexo Biológico";
+gender_female_pt = "Feminino";
+gender_masculine_pt = "Masculino";
+
+ethnic_group_white_pt = "Branco";
+ethnic_group_black_pt = "Negro";
+ethnic_group_brown_pt = "Pardo";
+ethnic_group_red_pt = "Vermelho";
+ethnic_group_yellow_pt = "Amarelo";
+
+relationship_mother_pt = "Mãe";
+relationship_sister_pt = "Irmã";
+relationship_daughter_pt = "Filha";
+   
+relationship_father_pt = "Pai";
+relationship_brother_pt = "Irmão";
+relationship_son_pt = "Filho";
+   
+relationship_friend_pt = "Amigo(a)";
+relationship_spouse_pt = "Cônjuge";
+relationship_partner_pt = "Parceiro(a)";
+relationship_parent_pt = "Parente";
+relationship_other_pt = "Outro";
+
+nationality_title_pt = "Nacionalidade";
+nationality_usa_pt = "Americano";
+nationality_br_pt = "Brasileiro";
+
+age_range_title_pt = "Faixa Etária";
+age_range_older_pt = "Maior de idade";
+age_range_minor_pt = "Menor de idade";
+age_range_baby_pt = "Bebê";
+age_range_child_pt = "Criança";
+age_range_teen_pt = "Adolescente";
+age_range_young_pt = "Jovem";
+age_range_adult_pt = "Adulto";
+age_range_elderly_pt = "Idoso";
+
+idiom_title_pt = "Idioma";
+idiom_english_pt = "Inglês";
+idiom_portuguese_pt = "Português";
+
+filter_title_pt = "Filtros";
+
+search_placeholder_pt = "Buscar pelo nome";
