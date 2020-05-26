@@ -46,7 +46,8 @@ One click on the field to copy.
 ## Building the app
 
 **Requirements:**
-- iOS or iPadOS 13 or later
+- iOS 13 or later
+- iPadOS 13 or later
 - macOS 10.15 or later
 - Xcode 11 or later
 
