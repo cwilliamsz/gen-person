@@ -14,7 +14,7 @@ class Name: Object {
     @objc dynamic var id            = Int().idDefault
     @objc dynamic var title         = String()
     @objc dynamic var country       = Int().idDefault
-    @objc dynamic var gender         = Int().idDefault
+    @objc dynamic var gender        = Int().idDefault
     @objc dynamic var isLastName    = false
     
 }
