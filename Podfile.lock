@@ -1,0 +1,56 @@
+PODS:
+  - IQKeyboardManagerSwift (6.5.6)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
+  - Nimble (8.0.4)
+  - Quick (2.2.0)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
+  - Realm (5.3.3):
+    - Realm/Headers (= 5.3.3)
+  - Realm/Headers (5.3.3)
+  - RealmSwift (5.3.3):
+    - Realm (= 5.3.3)
+  - SnapshotTesting (1.7.2)
+  - SwiftLint (0.40.0)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift (~> 6.5.4)
+  - Kingfisher (~> 5.13.2)
+  - Nimble (= 8.0.4)
+  - Quick (= 2.2.0)
+  - R.swift (~> 5.1.0)
+  - RealmSwift
+  - SnapshotTesting (~> 1.7.2)
+  - SwiftLint (~> 0.39)
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Nimble
+    - Quick
+    - R.swift
+    - R.swift.Library
+    - Realm
+    - RealmSwift
+    - SnapshotTesting
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Realm: 2d57ea355bf8ca2a0964d6bfb38d28d7ff2addf6
+  RealmSwift: 0a709536ecea30eea1d3c514f6ade2ed078dee3c
+  SnapshotTesting: 8caa6661fea7c8019d5b46de77c16bab99c36c5c
+  SwiftLint: 4154893c73a4c52d6240195507eb7a3e3c64087e
+
+PODFILE CHECKSUM: 42e7f5be61720e473cd217e6dbd26cf18ae5f8ae
+
+COCOAPODS: 1.9.3
