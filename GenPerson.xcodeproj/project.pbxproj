@@ -351,8 +351,8 @@
 		BFB2623224E5F5A0002857D6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				BFB2624524E6005C002857D6 /* Storages */,
 				BFB2623E24E5FA48002857D6 /* Main */,
+				BFB2624524E6005C002857D6 /* Storages */,
 				BFB2623324E5F5CA002857D6 /* Models */,
 				BFB2623424E5F911002857D6 /* Modules */,
 			);
@@ -1095,7 +1095,7 @@
 			baseConfigurationReference = E55C1448CDBB1140416EF46B /* Pods-GenPerson.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GenPerson/SupportFiles/GenPerson.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GenPerson/GenPerson.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 89HNLEXPN9;
@@ -1118,7 +1118,7 @@
 			baseConfigurationReference = 0E42D8F199357FE08903010E /* Pods-GenPerson.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GenPerson/SupportFiles/GenPerson.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GenPerson/GenPerson.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 89HNLEXPN9;

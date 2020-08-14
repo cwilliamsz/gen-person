@@ -10,8 +10,8 @@ import UIKit
 
 enum Country: Int {
     case random = 0
-    case br     = 1
-    case usa    = 2
+    case brazil = 1
+    case unitedStates = 2
 
     static var key: String {
         return "nationality"
@@ -22,31 +22,31 @@ enum Country: Int {
     }
 
     static var currentNationality: Country {
-        return Country(rawValue: UserDefaultsUtils.current(key: self.key)) ?? .br
+        return Country(rawValue: UserDefaultsUtils.current(key: self.key)) ?? .brazil
     }
 
     func nationality() -> String {
         switch self {
         case .random:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.CommonRandomEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.CommonRandomPt)
+            case .english:
+                return String(identifier: StringIdentifier.commonRandomEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.commonRandomPt)
             }
-        case .br:
+        case .brazil:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.NationalityBREng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.NationalityBRPt)
+            case .english:
+                return String(identifier: StringIdentifier.nationalityBREng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.nationalityBRPt)
             }
-        case .usa:
+        case .unitedStates:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.NationalityUSAEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.NationalityUSAPt)
+            case .english:
+                return String(identifier: StringIdentifier.nationalityUSAEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.nationalityUSAPt)
             }
         }
     }

@@ -9,25 +9,25 @@
 import Foundation
 
 enum LanguageType: String {
-    case English = "ENG"
-    case Portuguese = "PT-BR"
+    case english = "ENG"
+    case portuguese = "PT-BR"
 
     func raw() -> String {
         switch self {
-        case .Portuguese:
+        case .portuguese:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.IdiomPortugueseEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.IdiomPortuguesePt)
+            case .english:
+                return String(identifier: StringIdentifier.idiomPortugueseEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.idiomPortuguesePt)
             }
 
-        case .English:
+        case .english:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.IdiomEnglishEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.IdiomEnglishPt)
+            case .english:
+                return String(identifier: StringIdentifier.idiomEnglishEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.idiomEnglishPt)
             }
         }
     }

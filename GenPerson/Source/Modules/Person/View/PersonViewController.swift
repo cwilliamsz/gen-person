@@ -72,7 +72,7 @@ class PersonViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var imageViewStatusEmail: UIImageView!
 
-    private let vm = PersonViewModel()
+    private let viewModel = PersonViewModel()
     private let defaultCenter = NotificationCenter.default
 
     var person: Person?
@@ -107,7 +107,7 @@ class PersonViewController: UIViewController {
         textFieldEmail.text         = person.email
         textFieldPhone.text         = person.phone
 
-        labelAge.text = vm.getAge(person)
+        labelAge.text = viewModel.getAge(person)
 
         labelTextContact.text       = person.contactName
         textFieldRelationship.text  = Relationship(rawValue: person.contactRelationship)?.raw()
@@ -118,11 +118,11 @@ class PersonViewController: UIViewController {
         labelDocument.isEnabled     = documentIsEnabled
 
         // Profile
-        switch vm.nationalityWithoutRandom {
-        case .br:
-            imageViewNationality.image = UIImage(withImageIdentifier: ImageIdentifier.IconBrazil)
-        case .usa:
-            imageViewNationality.image = UIImage(withImageIdentifier: ImageIdentifier.IconUSA)
+        switch viewModel.nationalityWithoutRandom {
+        case .brazil:
+            imageViewNationality.image = UIImage(identifier: ImageIdentifier.iconBrazil)
+        case .unitedStates:
+            imageViewNationality.image = UIImage(identifier: ImageIdentifier.iconUSA)
         default:
             break
         }
@@ -130,10 +130,10 @@ class PersonViewController: UIViewController {
         let gender = Gender(rawValue: person.sexOfBirth)
         switch gender {
         case .female:
-            imageViewProfile.image = UIImage(withImageIdentifier: ImageIdentifier.IconWoman).withRenderingMode(.alwaysOriginal)
+            imageViewProfile.image = UIImage(identifier: ImageIdentifier.iconWoman).withRenderingMode(.alwaysOriginal)
             viewProfile.layer.borderColor = Color.female().cgColor
         case .masculine:
-            imageViewProfile.image = UIImage(withImageIdentifier: ImageIdentifier.IconMan).withRenderingMode(.alwaysOriginal)
+            imageViewProfile.image = UIImage(identifier: ImageIdentifier.iconMan).withRenderingMode(.alwaysOriginal)
             viewProfile.layer.borderColor = Color.masculine().cgColor
         default:
             break
@@ -144,11 +144,10 @@ class PersonViewController: UIViewController {
 
 // MARK: - Actions
 extension PersonViewController {
-
     @IBAction func createPerson(_ sender: Any) {
         setIconCopy()
         setFieldsText()
-        loadPerson(vm.getPerson())
+        loadPerson(viewModel.getPerson())
     }
 
     @IBAction func copyValue(_ sender: Any) {
@@ -212,7 +211,6 @@ extension PersonViewController {
 
         UIPasteboard.general.string = text
     }
-
 }
 
 // MARK: - SetupProtocol
@@ -226,7 +224,6 @@ extension PersonViewController: SetupProtocol {
     }
 
     func applyStyle() {
-        // Views
         view.backgroundColor        = .white
         viewContent.backgroundColor = Color.mainBackground()
         scrollView.backgroundColor  = Color.mainBackground()
@@ -249,17 +246,8 @@ extension PersonViewController: SetupProtocol {
             })
         }
 
-        // Labels
-        [labelName,
-         labelDocument,
-         labelDateOfBirth,
-         labelSexOfBirth,
-         labelEthnicGroup,
-         labelContact,
-         labelRelationship,
-         labelPhone,
-         labelContactPhone,
-         labelEmail].forEach { (label) in
+        [labelName, labelDocument, labelDateOfBirth, labelSexOfBirth, labelEthnicGroup, labelContact,
+         labelRelationship, labelPhone, labelContactPhone, labelEmail].forEach { (label) in
             label?.font      = Font.labelTitle()
             label?.textColor = Color.labelTitleText()
         }
@@ -267,20 +255,14 @@ extension PersonViewController: SetupProtocol {
         labelAge.font       = Font.labelDetail()
         labelAge.textColor  = Color.labelDetailText()
 
-        // TextFields
         setFieldsText()
-
-        // ImageViews
         setIconCopy()
 
-        // Buttons
         buttonAdd.layer.cornerRadius    = buttonAdd.frame.height / 2
         buttonAdd.backgroundColor       = Color.mainColor()
         buttonAdd.layer.masksToBounds   = true
         buttonAdd.titleLabel?.font      = Font.buttonGenerate()
-
         buttonAdd.setTitleColor(Color.buttonGenerateTitle(), for: .normal)
-
         buttonAdd.layer.shadowColor     = UIColor.black.cgColor
         buttonAdd.layer.shadowOffset    = CGSize(width: 0.0, height: 5.0)
         buttonAdd.layer.shadowRadius    = 10.0
@@ -289,51 +271,50 @@ extension PersonViewController: SetupProtocol {
 
     func applyLanguage() {
         switch Language.current {
-        case .Portuguese:
-            self.title              = String(withCustomIdentifier: StringIdentifier.PersonTitlePt)
-            labelName.text          = String(withCustomIdentifier: StringIdentifier.PersonNamePt)
-            labelDocument.text      = String(withCustomIdentifier: StringIdentifier.PersonDocumentPt)
-            labelDateOfBirth.text   = String(withCustomIdentifier: StringIdentifier.PersonDateOfBirthPt)
-            labelSexOfBirth.text    = String(withCustomIdentifier: StringIdentifier.PersonSexOfBirthPt)
-            labelEthnicGroup.text   = String(withCustomIdentifier: StringIdentifier.PersonEthnicGroupPt)
-            labelContact.text       = String(withCustomIdentifier: StringIdentifier.PersonContactPt)
-            labelRelationship.text  = String(withCustomIdentifier: StringIdentifier.PersonRelationshipPt)
-            labelPhone.text         = String(withCustomIdentifier: StringIdentifier.PersonPhonePt)
-            labelEmail.text         = String(withCustomIdentifier: StringIdentifier.PersonEmailPt)
-            labelContactPhone.text  = String(withCustomIdentifier: StringIdentifier.PersonPhonePt)
+        case .portuguese:
+            self.title              = String(identifier: StringIdentifier.personTitlePt)
+            labelName.text          = String(identifier: StringIdentifier.personNamePt)
+            labelDocument.text      = String(identifier: StringIdentifier.personDocumentPt)
+            labelDateOfBirth.text   = String(identifier: StringIdentifier.personDateOfBirthPt)
+            labelSexOfBirth.text    = String(identifier: StringIdentifier.personSexOfBirthPt)
+            labelEthnicGroup.text   = String(identifier: StringIdentifier.personEthnicGroupPt)
+            labelContact.text       = String(identifier: StringIdentifier.personContactPt)
+            labelRelationship.text  = String(identifier: StringIdentifier.personRelationshipPt)
+            labelPhone.text         = String(identifier: StringIdentifier.personPhonePt)
+            labelEmail.text         = String(identifier: StringIdentifier.personEmailPt)
+            labelContactPhone.text  = String(identifier: StringIdentifier.personPhonePt)
 
-            buttonAdd.setTitle(String(withCustomIdentifier: StringIdentifier.CommonGeneratePt), for: .normal)
+            buttonAdd.setTitle(String(identifier: StringIdentifier.commonGeneratePt), for: .normal)
 
-            self.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.CommonNewPt),
-                                            image: UIImage(withImageIdentifier: ImageIdentifier.IconAdd),
+            self.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewPt),
+                                            image: UIImage(identifier: ImageIdentifier.iconAdd),
+                                            tag: 0)
+
+            guard tabBarController?.tabBar.items?.count ?? 0 > 2 else { return }
+            tabBarController?.tabBar.items![1].title = String(identifier: StringIdentifier.historyTitlePt)
+            tabBarController?.tabBar.items![2].title = String(identifier: StringIdentifier.settingsTitlePt)
+        case .english:
+            self.title              = String(identifier: StringIdentifier.personTitleEng)
+            labelName.text          = String(identifier: StringIdentifier.personNameEng)
+            labelDocument.text      = String(identifier: StringIdentifier.personDocumentEng)
+            labelDateOfBirth.text   = String(identifier: StringIdentifier.personDateOfBirthEng)
+            labelSexOfBirth.text    = String(identifier: StringIdentifier.personSexOfBirthEng)
+            labelEthnicGroup.text   = String(identifier: StringIdentifier.personEthnicGroupEng)
+            labelContact.text       = String(identifier: StringIdentifier.personContactEng)
+            labelPhone.text         = String(identifier: StringIdentifier.personPhoneEng)
+            labelEmail.text         = String(identifier: StringIdentifier.personEmailEng)
+            labelRelationship.text  = String(identifier: StringIdentifier.personRelationshipEng)
+            labelContactPhone.text  = String(identifier: StringIdentifier.personPhoneEng)
+
+            buttonAdd.setTitle(String(identifier: StringIdentifier.commonGenerateEng), for: .normal)
+
+            tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewEng),
+                                            image: UIImage(identifier: ImageIdentifier.iconAdd),
                                             tag: 0)
 
             guard self.tabBarController?.tabBar.items?.count ?? 0 > 2 else { return }
-            self.tabBarController?.tabBar.items![1].title = String(withCustomIdentifier: StringIdentifier.HistoryTitlePt)
-            self.tabBarController?.tabBar.items![2].title = String(withCustomIdentifier: StringIdentifier.SettingsTitlePt)
-
-        case .English:
-            self.title              = String(withCustomIdentifier: StringIdentifier.PersonTitleEng)
-            labelName.text          = String(withCustomIdentifier: StringIdentifier.PersonNameEng)
-            labelDocument.text      = String(withCustomIdentifier: StringIdentifier.PersonDocumentEng)
-            labelDateOfBirth.text   = String(withCustomIdentifier: StringIdentifier.PersonDateOfBirthEng)
-            labelSexOfBirth.text    = String(withCustomIdentifier: StringIdentifier.PersonSexOfBirthEng)
-            labelEthnicGroup.text   = String(withCustomIdentifier: StringIdentifier.PersonEthnicGroupEng)
-            labelContact.text       = String(withCustomIdentifier: StringIdentifier.PersonContactEng)
-            labelPhone.text         = String(withCustomIdentifier: StringIdentifier.PersonPhoneEng)
-            labelEmail.text         = String(withCustomIdentifier: StringIdentifier.PersonEmailEng)
-            labelRelationship.text  = String(withCustomIdentifier: StringIdentifier.PersonRelationshipEng)
-            labelContactPhone.text  = String(withCustomIdentifier: StringIdentifier.PersonPhoneEng)
-
-            buttonAdd.setTitle(String(withCustomIdentifier: StringIdentifier.CommonGenerateEng), for: .normal)
-
-            self.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.CommonNewEng),
-                                            image: UIImage(withImageIdentifier: ImageIdentifier.IconAdd),
-                                            tag: 0)
-
-            guard self.tabBarController?.tabBar.items?.count ?? 0 > 2 else { return }
-            self.tabBarController?.tabBar.items![1].title = String(withCustomIdentifier: StringIdentifier.HistoryTitleEng)
-            self.tabBarController?.tabBar.items![2].title = String(withCustomIdentifier: StringIdentifier.SettingsTitleEng)
+            tabBarController?.tabBar.items![1].title = String(identifier: StringIdentifier.historyTitleEng)
+            tabBarController?.tabBar.items![2].title = String(identifier: StringIdentifier.settingsTitleEng)
         }
     }
 
@@ -354,7 +335,7 @@ extension PersonViewController {
     }
 
     private func setIconCopy(_ current: UIImageView = UIImageView()) {
-        guard let icon = UIImage(withImageIdentifier: ImageIdentifier.IconCopy) else { return }
+        guard let icon = UIImage(identifier: ImageIdentifier.iconCopy) else { return }
 
         [imageViewStatusName,
          imageViewStatusDocument,
@@ -380,9 +361,13 @@ extension PersonViewController {
          textFieldPhone,
          textFieldContactPhone,
          textFieldEmail].forEach { (textField) in
-            textField?.backgroundColor      = textField == view ? Color.mainColorBackground() : Color.textFieldBackground()
-            textField?.layer.borderColor    = textField == view ? Color.iconCopySelected().cgColor : Color.textFieldBorder().cgColor
-            textField?.layer.borderWidth    = textField == view ? 2 : 1
+            let isCurrentView = textField == view
+            let backgroundColor = isCurrentView ? Color.mainColorBackground() : Color.textFieldBackground()
+            let borderColor = isCurrentView ? Color.iconCopySelected() : Color.textFieldBorder()
+
+            textField?.backgroundColor      = backgroundColor
+            textField?.layer.borderColor    = borderColor.cgColor
+            textField?.layer.borderWidth    = isCurrentView ? 2 : 1
             textField?.font                 = Font.textFieldText()
             textField?.textColor            = Color.textFieldText()
             textField?.layer.cornerRadius   = 6
@@ -391,9 +376,13 @@ extension PersonViewController {
         }
 
         [viewTextName, viewTextContact].forEach { (viewText) in
-            viewText?.layer.borderColor  = viewText == view ? Color.iconCopySelected().cgColor : Color.textFieldBorder().cgColor
-            viewText?.backgroundColor    = viewText == view ? Color.mainColorBackground() : Color.textFieldBackground()
-            viewText?.layer.borderWidth  = viewText == view ? 2 : 1
+            let isCurrentView = viewText == view
+            let backgroundColor = isCurrentView ? Color.mainColorBackground() : Color.textFieldBackground()
+            let borderColor = isCurrentView ? Color.iconCopySelected() : Color.textFieldBorder()
+
+            viewText?.layer.borderColor  = borderColor.cgColor
+            viewText?.backgroundColor    = backgroundColor
+            viewText?.layer.borderWidth  = isCurrentView ? 2 : 1
             viewText?.layer.cornerRadius = 6
         }
 
@@ -410,8 +399,9 @@ extension PersonViewController {
 extension PersonViewController {
 
     private func setupNotifications() {
+        let notificationName = NSNotification.Name(rawValue: NotificationIdentifier.changeLanguage.rawValue)
         defaultCenter.addObserver(self, selector: #selector(changeLanguage),
-                                  name: NSNotification.Name(rawValue: NotificationIdentifier.ChangeLanguage.rawValue),
+                                  name: notificationName,
                                   object: nil)
     }
 

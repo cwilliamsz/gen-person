@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    public convenience init!(withImageIdentifier identifier: CustomIdentifier) {
+    public convenience init!(identifier identifier: CustomIdentifier) {
         self.init(named: identifier.key)
     }
 }

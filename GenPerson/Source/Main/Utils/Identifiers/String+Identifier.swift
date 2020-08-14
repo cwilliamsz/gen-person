@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 
 extension String {
-    public init(withCustomIdentifier identifier: CustomIdentifier) {
+    public init(identifier: CustomIdentifier) {
         self.init(NSLocalizedString(identifier.key, comment: ""))
     }
 
-    public init(withCustomIdentifier identifier: CustomIdentifier, comment: String) {
+    public init(identifier: CustomIdentifier, comment: String) {
         self.init(NSLocalizedString(identifier.key, comment: ""))
     }
 
     var toDate: Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = String(withCustomIdentifier: StringIdentifier.CommonFormatToDate)
+        dateFormatter.dateFormat = String(identifier: StringIdentifier.commonFormatToDate)
         return dateFormatter.date(from: self) ?? Date()
     }
 }

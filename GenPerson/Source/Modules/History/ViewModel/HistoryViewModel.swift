@@ -22,7 +22,7 @@ class HistoryViewModel {
     private var _ageRangeSelected: AgeRange         = .random
 
     private let _genders: [Gender]                  = [.random, .female, .masculine]
-    private let _nationalities: [Country]           = [.random, .br, .usa]
+    private let _nationalities: [Country]           = [.random, .brazil, .unitedStates]
     private let _sectionsFilter: [SettingOption]    = [.ageRange, .gender, .nationality]
     private let _ageRanges: [AgeRange]              = [.random, .older, .minor, .baby, .child, .teen, .young, .adult, .elderly]
 

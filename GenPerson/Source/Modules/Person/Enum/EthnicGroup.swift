@@ -19,47 +19,47 @@ enum EthnicGroup: Int {
         switch self {
         case .white:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupWhiteEng)
+            case .english:
+                return String(identifier: StringIdentifier.ethnicGroupWhiteEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupWhitePt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ethnicGroupWhitePt)
             }
 
         case .black:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupBlackEng)
+            case .english:
+                return String(identifier: StringIdentifier.ethnicGroupBlackEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupBlackPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ethnicGroupBlackPt)
             }
 
         case .brown:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupBrownEng)
+            case .english:
+                return String(identifier: StringIdentifier.ethnicGroupBrownEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupBrownPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ethnicGroupBrownPt)
             }
 
         case .red:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupRedEng)
+            case .english:
+                return String(identifier: StringIdentifier.ethnicGroupRedEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupRedPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ethnicGroupRedPt)
             }
 
         case .yellow:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupYellowEng)
+            case .english:
+                return String(identifier: StringIdentifier.ethnicGroupYellowEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.EthnicGroupYellowPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ethnicGroupYellowPt)
             }
         }
     }

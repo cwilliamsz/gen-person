@@ -9,8 +9,6 @@
 import Foundation
 
 enum TableViewCellIdentifier: String, CustomIdentifier {
-
-    case HistoryCell    = "HistoryTableViewCell"
-    case SettingCell    = "SettingTableViewCell"
-
+    case historyCell    = "HistoryTableViewCell"
+    case settingCell    = "SettingTableViewCell"
 }

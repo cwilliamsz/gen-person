@@ -15,7 +15,7 @@ class PersonViewModel {
     private var lastLastName = String()
 
     var largeName: Bool = true
-    var nationalityWithoutRandom: Country = .br
+    var nationalityWithoutRandom: Country = .brazil
 
     init() {
     }
@@ -123,17 +123,17 @@ class PersonViewModel {
     }
 
     private func createCPFValid() -> String {
-        guard nationalityWithoutRandom == .br else {
+        guard nationalityWithoutRandom == .brazil else {
             return String()
         }
 
         var cpf = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         var temp1 = 0, temp2 = 0
 
-        for i in 0...8 {
-            cpf[i] = (Int)(arc4random_uniform(9))
-            temp1 += cpf[i] * (10 - i)
-            temp2 += cpf[i] * (11 - i)
+        for idx in 0...8 {
+            cpf[idx] = (Int)(arc4random_uniform(9))
+            temp1 += cpf[idx] * (10 - idx)
+            temp2 += cpf[idx] * (11 - idx)
         }
 
         temp1 %= 11
@@ -143,7 +143,9 @@ class PersonViewModel {
         temp2 %= 11
         cpf[10] = temp2 < 2 ? 0 : 11-temp2
 
-        return "\(cpf[0])\(cpf[1])\(cpf[2]).\(cpf[3])\(cpf[4])\(cpf[5]).\(cpf[6])\(cpf[7])\(cpf[8])-\(cpf[9])\(cpf[10])"
+        return "\(cpf[0])\(cpf[1])\(cpf[2])." +
+                "\(cpf[3])\(cpf[4])\(cpf[5])." +
+                "\(cpf[6])\(cpf[7])\(cpf[8])-\(cpf[9])\(cpf[10])"
     }
 
     private func createDate() -> Date {
@@ -205,7 +207,9 @@ class PersonViewModel {
             return "\(prefix).\(suffix)@\(domain)".lowercased()
         }
 
-        let firstPart = "\(prefix)\(separator)\(suffix)".folding(options: .diacriticInsensitive, locale: .current)
+        let firstPart = "\(prefix)\(separator)\(suffix)".folding(options: .diacriticInsensitive,
+                                                                 locale: .current)
+
         let secondPart = "\(firstPart.lowercased())\(separator)"
 
         return "\(secondPart)@\(domain)"
@@ -233,8 +237,8 @@ class PersonViewModel {
         var phoneSize = 0
 
         switch nationalityWithoutRandom {
-        case .br:
-            prefix = String(withCustomIdentifier: StringIdentifier.PhonePrefixPt)
+        case .brazil:
+            prefix = String(identifier: StringIdentifier.phonePrefixPt)
             areaCodes = [38, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54,
                          55, 61, 62, 63, 64, 65, 66, 67, 68, 69, 71, 73, 74,
                          75, 77, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89, 91,
@@ -243,8 +247,8 @@ class PersonViewModel {
             phone = "99"
             phoneSize = 9
 
-        case .usa:
-            prefix = String(withCustomIdentifier: StringIdentifier.PhonePrefixEng)
+        case .unitedStates:
+            prefix = String(identifier: StringIdentifier.phonePrefixEng)
             areaCodes = [209, 213, 310, 323, 408, 415, 510, 530, 559,
                          562, 619, 626, 650, 661, 707, 714, 760, 805,
                          818, 831, 858, 909, 916, 925, 949]

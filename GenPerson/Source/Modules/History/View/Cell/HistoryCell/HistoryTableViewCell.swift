@@ -47,10 +47,10 @@ class HistoryTableViewCell: UITableViewCell {
         // Country icon
         let country = Country(rawValue: person.country)
         switch country {
-        case .br:
-            imageViewNationality.image = UIImage(withImageIdentifier: ImageIdentifier.IconBrazil)
-        case .usa:
-            imageViewNationality.image = UIImage(withImageIdentifier: ImageIdentifier.IconUSA)
+        case .brazil:
+            imageViewNationality.image = UIImage(identifier: ImageIdentifier.iconBrazil)
+        case .unitedStates:
+            imageViewNationality.image = UIImage(identifier: ImageIdentifier.iconUSA)
         default:
             imageViewNationality.isHidden = true
         }
@@ -60,11 +60,11 @@ class HistoryTableViewCell: UITableViewCell {
 
         switch gender {
         case .female:
-            buttonProfile.setImage(UIImage(withImageIdentifier: ImageIdentifier.IconWoman).withRenderingMode(.alwaysOriginal),
+            buttonProfile.setImage(UIImage(identifier: ImageIdentifier.iconWoman).withRenderingMode(.alwaysOriginal),
             for: .normal)
             buttonProfile.layer.borderColor = Color.female().cgColor
         case .masculine:
-            buttonProfile.setImage(UIImage(withImageIdentifier: ImageIdentifier.IconMan).withRenderingMode(.alwaysOriginal),
+            buttonProfile.setImage(UIImage(identifier: ImageIdentifier.iconMan).withRenderingMode(.alwaysOriginal),
             for: .normal)
             buttonProfile.layer.borderColor = Color.masculine().cgColor
         default:

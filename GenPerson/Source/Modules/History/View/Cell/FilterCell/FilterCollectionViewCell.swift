@@ -53,9 +53,9 @@ class FilterCollectionViewCell: UICollectionViewCell {
 
         switch gender {
         case .female:
-            imageViewIcon.image = UIImage(withImageIdentifier: ImageIdentifier.IconWoman)
+            imageViewIcon.image = UIImage(identifier: ImageIdentifier.iconWoman)
         case .masculine:
-            imageViewIcon.image = UIImage(withImageIdentifier: ImageIdentifier.IconMan)
+            imageViewIcon.image = UIImage(identifier: ImageIdentifier.iconMan)
         default:
             setTextAllWhenRandom()
             labelIcon.isHidden                      = false
@@ -88,10 +88,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
         imageViewIcon.isHidden  = false
 
         switch country {
-        case .br:
-            imageViewIcon.image = UIImage(withImageIdentifier: ImageIdentifier.IconBrazil)
-        case .usa:
-            imageViewIcon.image = UIImage(withImageIdentifier: ImageIdentifier.IconUSA)
+        case .brazil:
+            imageViewIcon.image = UIImage(identifier: ImageIdentifier.iconBrazil)
+        case .unitedStates:
+            imageViewIcon.image = UIImage(identifier: ImageIdentifier.iconUSA)
         default:
             setTextAllWhenRandom()
             labelIcon.isHidden                      = false
@@ -111,10 +111,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
 
     private func setTextAllWhenRandom() {
         switch Language.current {
-        case .Portuguese:
-            labelTitle.text = String(withCustomIdentifier: StringIdentifier.CommonAllPt)
-        case .English:
-            labelTitle.text = String(withCustomIdentifier: StringIdentifier.CommonAllEng)
+        case .portuguese:
+            labelTitle.text = String(identifier: StringIdentifier.commonAllPt)
+        case .english:
+            labelTitle.text = String(identifier: StringIdentifier.commonAllEng)
         }
     }
 

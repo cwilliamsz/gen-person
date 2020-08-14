@@ -29,26 +29,26 @@ enum Gender: Int {
         switch self {
         case .female:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.GenderFemaleEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.GenderFemalePt)
+            case .english:
+                return String(identifier: StringIdentifier.genderFemaleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.genderFemalePt)
             }
 
         case .masculine:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.GenderMasculineEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.GenderMasculinePt)
+            case .english:
+                return String(identifier: StringIdentifier.genderMasculineEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.genderMasculinePt)
             }
 
         case .random:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.CommonRandomEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.CommonRandomPt)
+            case .english:
+                return String(identifier: StringIdentifier.commonRandomEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.commonRandomPt)
             }
         }
     }

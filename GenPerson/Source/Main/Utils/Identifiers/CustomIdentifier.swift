@@ -13,7 +13,5 @@ public protocol CustomIdentifier {
 }
 
 extension CustomIdentifier where Self: RawRepresentable, Self.RawValue == String {
-
     public var key: String { return self.rawValue }
-
 }

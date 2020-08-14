@@ -44,7 +44,8 @@ class SettingTableViewCell: UITableViewCell {
         constraintViewIconWidth.constant            = isAction ? 0 : 20
 
         viewIcon.backgroundColor = .clear
-        let image = isSelected ? UIImage(withImageIdentifier: ImageIdentifier.IconCircleSelected) : UIImage(withImageIdentifier: ImageIdentifier.IconCircle)
+        let imageIdentifier: ImageIdentifier = isSelected ? .iconCircleSelected : .iconCircle
+        let image = UIImage(identifier: imageIdentifier)
         iconImageView.image = image?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = Color.mainColor()
     }
@@ -58,25 +59,25 @@ class SettingTableViewCell: UITableViewCell {
             detail = Gender.current.raw()
 
             viewIcon.backgroundColor = Gender.color
-            icon = UIImage(withImageIdentifier: ImageIdentifier.IconGender)
+            icon = UIImage(identifier: ImageIdentifier.iconGender)
 
         case .nationality:
             detail = Country.currentNationality.nationality()
 
             viewIcon.backgroundColor = Country.color
-            icon = UIImage(withImageIdentifier: ImageIdentifier.IconNationality)
+            icon = UIImage(identifier: ImageIdentifier.iconNationality)
 
         case .ageRange:
             detail = AgeRange.current.raw()
 
             viewIcon.backgroundColor = AgeRange.color
-            icon = UIImage(withImageIdentifier: ImageIdentifier.IconAgeRange)
+            icon = UIImage(identifier: ImageIdentifier.iconAgeRange)
 
         case .idiom:
             detail = Language.current.raw()
 
             viewIcon.backgroundColor = Language.color
-            icon = UIImage(withImageIdentifier: ImageIdentifier.IconLanguage)
+            icon = UIImage(identifier: ImageIdentifier.iconLanguage)
         }
 
         viewIcon.layer.cornerRadius = 8

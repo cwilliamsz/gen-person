@@ -13,7 +13,8 @@ extension UITableView {
         return register(nib, forCellReuseIdentifier: identifier.key)
     }
 
-    public func dequeueReusableCellWithIdentifier(_ identifier: CustomIdentifier, forIndexPath: IndexPath) -> UITableViewCell {
+    public func dequeueReusableCellWithIdentifier(_ identifier: CustomIdentifier,
+                                                  forIndexPath: IndexPath) -> UITableViewCell {
         return dequeueReusableCell(withIdentifier: identifier.key, for: forIndexPath)
     }
 }

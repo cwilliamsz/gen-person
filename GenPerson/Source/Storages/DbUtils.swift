@@ -27,7 +27,7 @@ extension DbUtils {
     func getName(gender: Int) -> Name? {
         let predicate = NSPredicate(format: "isLastName == false AND gender == \(gender)")
         let results = findName(withPredicate: predicate)
-        guard results.count > 0 else {
+        guard results.isEmpty else {
             return getName(gender: gender)
         }
 
@@ -38,7 +38,7 @@ extension DbUtils {
     func getLastName() -> Name? {
         let predicate = NSPredicate(format: "isLastName == true")
         let results = findName(withPredicate: predicate)
-        guard results.count > 0 else {
+        guard results.isEmpty else {
             return getLastName()
         }
 
@@ -56,13 +56,19 @@ extension DbUtils {
     }
 
     private func findName(withPredicate predicate: NSPredicate) -> Results<Name> {
-        return connection.objects(Name.self).filter(predicate).filter("country == \(nationalityWithoutRandom.rawValue)")
+        return connection.objects(Name.self)
+            .filter(predicate)
+            .filter("country == \(nationalityWithoutRandom.rawValue)")
     }
 }
 
 // MARK: - History  Methods
 extension DbUtils {
-    func getAllPerson(byKeyPath: String = "createdAt", ascending: Bool = false, gender: Gender, nationality: Country, ageRange: AgeRange) -> Results<Person>? {
+    func getAllPerson(byKeyPath: String = "createdAt",
+                      ascending: Bool = false,
+                      gender: Gender,
+                      nationality: Country,
+                      ageRange: AgeRange) -> Results<Person>? {
         let genders         = gender == .random ? [1, 2] : [gender.rawValue]
         let nationalities   = nationality == .random ? [1, 2] : [nationality.rawValue]
 
@@ -77,7 +83,10 @@ extension DbUtils {
             .sorted(byKeyPath: byKeyPath, ascending: ascending)
     }
 
-    func searchPerson(_ text: String, gender: Gender, nationality: Country, ageRange: AgeRange) -> Results<Person>? {
+    func searchPerson(_ text: String,
+                      gender: Gender,
+                      nationality: Country,
+                      ageRange: AgeRange) -> Results<Person>? {
         let results = getAllPerson(gender: gender, nationality: nationality, ageRange: ageRange)
         return results?.filter("name contains[cd] '\(text)'")
     }

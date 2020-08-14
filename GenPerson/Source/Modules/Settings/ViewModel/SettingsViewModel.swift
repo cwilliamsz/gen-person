@@ -114,14 +114,15 @@ class SettingsViewModel {
 
     private func changeLanguage(language: LanguageType) {
         switch language {
-        case .English:
-            Language.change(to: .English)
+        case .english:
+            Language.change(type: .english)
 
-        case .Portuguese:
-            Language.change(to: .Portuguese)
+        case .portuguese:
+            Language.change(type: .portuguese)
         }
 
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationIdentifier.ChangeLanguage.rawValue), object: nil)
+        let notificationName = NSNotification.Name(rawValue: NotificationIdentifier.changeLanguage.rawValue)
+        NotificationCenter.default.post(name: notificationName, object: nil)
     }
 
     func getItemsForDetail(indexPath: IndexPath) -> [[Any]] {
@@ -133,13 +134,14 @@ class SettingsViewModel {
             let values: [[Gender]] = [[.random, .female, .masculine]]
             return values
         case .nationality:
-            let values: [[Country]] = [[.random, .br, .usa]]
+            let values: [[Country]] = [[.random, .brazil, .unitedStates]]
             return values
         case .ageRange:
-            let values: [[AgeRange]] = [[.random, .minor, .older, .baby, .child, .teen, .young, .adult, .elderly]]
+            let values: [[AgeRange]] = [[.random, .minor, .older, .baby, .child,
+                                         .teen, .young, .adult, .elderly]]
             return values
         case .idiom:
-            let values: [[LanguageType]] = [[.Portuguese, .English]]
+            let values: [[LanguageType]] = [[.portuguese, .english]]
             return values
         }
     }

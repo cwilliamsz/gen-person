@@ -27,101 +27,101 @@ enum Relationship: Int {
         switch self {
         case .mother:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipMotherEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipMotherEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipMotherPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipMotherPt)
             }
 
         case .sister:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipSisterEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipSisterEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipSisterPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipSisterPt)
             }
 
         case .daughter:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipDaughterEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipDaughterEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipDaughterPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipDaughterPt)
             }
 
         case .father:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipFatherEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipFatherEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipFatherPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipFatherPt)
             }
 
         case .brother:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipBrotherEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipBrotherEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipBrotherPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipBrotherPt)
             }
 
         case .son:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipSonEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipSonEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipSonPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipSonPt)
             }
 
         case .friend:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipFriendEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipFriendEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipFriendPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipFriendPt)
             }
 
         case .spouse:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipSpouseEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipSpouseEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipSpousePt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipSpousePt)
             }
 
         case .partner:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipPartnerEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipPartnerEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipPartnerPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipPartnerPt)
             }
 
         case .parent:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipParentEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipParentEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipParentPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipParentPt)
             }
 
         case .other:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipOtherEng)
+            case .english:
+                return String(identifier: StringIdentifier.relationshipOtherEng)
 
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.RelationshipOtherPt)
+            case .portuguese:
+                return String(identifier: StringIdentifier.relationshipOtherPt)
             }
         }
     }

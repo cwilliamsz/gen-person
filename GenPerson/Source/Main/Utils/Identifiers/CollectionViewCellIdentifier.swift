@@ -9,8 +9,6 @@
 import Foundation
 
 enum CollectionViewCellIdentifier: String, CustomIdentifier {
-
-    case FilterCell = "FilterCollectionViewCell"
-    case SectionFilterCell = "SectionFilterCollectionViewCell"
-
+    case filterCell = "FilterCollectionViewCell"
+    case sectionFilterCell = "SectionFilterCollectionViewCell"
 }

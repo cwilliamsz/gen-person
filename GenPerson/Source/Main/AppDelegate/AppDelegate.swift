@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         initialViewController()
         return true
@@ -21,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Initial View Controller
     func initialViewController() {
-        guard let personController  = PersonViewController.fromNib(owner: self),
-            let historyController   = HistoryViewController.fromNib(owner: self),
-            let settingsController  = SettingsViewController.fromNib(owner: self)
+        guard let personVC  = PersonViewController.fromNib(owner: self),
+            let historyVC   = HistoryViewController.fromNib(owner: self),
+            let settingsVC  = SettingsViewController.fromNib(owner: self)
         else {
             return
         }
@@ -32,46 +33,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) { tabBarController.overrideUserInterfaceStyle = .light }
 
         switch Language.current {
-        case .Portuguese:
-            personController.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.CommonNewPt),
-                                                       image: UIImage(withImageIdentifier: ImageIdentifier.IconAdd),
-                                                       tag: 0)
+        case .portuguese:
+            personVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewPt),
+                                               image: UIImage(identifier: ImageIdentifier.iconAdd),
+                                               tag: 0)
 
-            historyController.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.HistoryTitlePt),
-                                                        image: UIImage(withImageIdentifier: ImageIdentifier.IconHistory),
-                                                        tag: 1)
+            historyVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.historyTitlePt),
+                                                image: UIImage(identifier: ImageIdentifier.iconHistory),
+                                                tag: 1)
 
-            settingsController.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.SettingsTitlePt),
-                                                        image: UIImage(withImageIdentifier: ImageIdentifier.IconSettings),
-                                                        tag: 2)
+            settingsVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.settingsTitlePt),
+                                                 image: UIImage(identifier: ImageIdentifier.iconSettings),
+                                                 tag: 2)
 
-        case .English:
-            personController.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.CommonNewEng),
-                                                       image: UIImage(withImageIdentifier: ImageIdentifier.IconAdd),
-                                                       tag: 0)
+        case .english:
+            personVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewEng),
+                                               image: UIImage(identifier: ImageIdentifier.iconAdd),
+                                               tag: 0)
 
-            historyController.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.HistoryTitleEng),
-                                                        image: UIImage(withImageIdentifier: ImageIdentifier.IconHistory),
-                                                        tag: 1)
+            historyVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.historyTitleEng),
+                                                image: UIImage(identifier: ImageIdentifier.iconHistory),
+                                                tag: 1)
 
-            settingsController.tabBarItem = UITabBarItem(title: String(withCustomIdentifier: StringIdentifier.SettingsTitleEng),
-                                                         image: UIImage(withImageIdentifier: ImageIdentifier.IconSettings),
-                                                         tag: 2)
+            settingsVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.settingsTitleEng),
+                                                 image: UIImage(identifier: ImageIdentifier.iconSettings),
+                                                 tag: 2)
         }
 
-        let navControllerPerson = UINavigationController(rootViewController: personController)
+        let navControllerPerson = UINavigationController(rootViewController: personVC)
         navControllerPerson.navigationBar.prefersLargeTitles    = false
         navControllerPerson.navigationBar.isTranslucent         = true
         navControllerPerson.navigationBar.backgroundColor       = Color.viewBackground()
         navControllerPerson.navigationBar.tintColor             = Color.mainColor()
 
-        let navControllerHistory = UINavigationController(rootViewController: historyController)
+        let navControllerHistory = UINavigationController(rootViewController: historyVC)
         navControllerHistory.navigationBar.prefersLargeTitles   = false
         navControllerHistory.navigationBar.isTranslucent        = true
         navControllerHistory.navigationBar.backgroundColor      = Color.viewBackground()
         navControllerHistory.navigationBar.tintColor            = Color.mainColor()
 
-        let navControllerSettings = UINavigationController(rootViewController: settingsController)
+        let navControllerSettings = UINavigationController(rootViewController: settingsVC)
         navControllerSettings.navigationBar.prefersLargeTitles  = false
         navControllerSettings.navigationBar.isTranslucent       = true
         navControllerSettings.navigationBar.backgroundColor     = Color.viewBackground()
@@ -83,7 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navControllerSettings.overrideUserInterfaceStyle    = .light
         }
 
-        tabBarController.viewControllers        = [navControllerPerson, navControllerHistory, navControllerSettings]
+        tabBarController.viewControllers        = [navControllerPerson,
+                                                   navControllerHistory,
+                                                   navControllerSettings]
+
         tabBarController.tabBar.tintColor       = Color.mainColor()
         tabBarController.tabBar.backgroundColor = Color.viewBackground()
         tabBarController.tabBar.isTranslucent   = false

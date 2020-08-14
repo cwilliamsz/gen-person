@@ -29,11 +29,11 @@ class SectionFilterCollectionViewCell: UICollectionViewCell {
         switch settingOption {
         case .ageRange:
             switch Language.current {
-            case .English:
-                title = String(withCustomIdentifier: StringIdentifier.AgeRangeTitleEng)
+            case .english:
+                title = String(identifier: StringIdentifier.ageRangeTitleEng)
 
-            case .Portuguese:
-                title = String(withCustomIdentifier: StringIdentifier.AgeRangeTitlePt)
+            case .portuguese:
+                title = String(identifier: StringIdentifier.ageRangeTitlePt)
             }
 
             let range = (item as! AgeRange).range()
@@ -41,22 +41,22 @@ class SectionFilterCollectionViewCell: UICollectionViewCell {
 
         case .gender:
             switch Language.current {
-            case .English:
-                title = String(withCustomIdentifier: StringIdentifier.GenderTitleEng)
+            case .english:
+                title = String(identifier: StringIdentifier.genderTitleEng)
 
-            case .Portuguese:
-                title = String(withCustomIdentifier: StringIdentifier.GenderTitlePt)
+            case .portuguese:
+                title = String(identifier: StringIdentifier.genderTitlePt)
             }
 
             detail = (item as! Gender).raw()
 
         case .nationality:
             switch Language.current {
-            case .English:
-                title = String(withCustomIdentifier: StringIdentifier.NationalityTitleEng)
+            case .english:
+                title = String(identifier: StringIdentifier.nationalityTitleEng)
 
-            case .Portuguese:
-                title = String(withCustomIdentifier: StringIdentifier.NationalityTitlePt)
+            case .portuguese:
+                title = String(identifier: StringIdentifier.nationalityTitlePt)
             }
 
             detail = (item as! Country).nationality()
@@ -65,10 +65,10 @@ class SectionFilterCollectionViewCell: UICollectionViewCell {
             break
         }
 
-        if detail == String(withCustomIdentifier: StringIdentifier.CommonRandomPt) {
-            detail = String(withCustomIdentifier: StringIdentifier.CommonAllPt)
-        } else if detail == String(withCustomIdentifier: StringIdentifier.CommonRandomEng) {
-            detail = String(withCustomIdentifier: StringIdentifier.CommonAllEng)
+        if detail == String(identifier: StringIdentifier.commonRandomPt) {
+            detail = String(identifier: StringIdentifier.commonAllPt)
+        } else if detail == String(identifier: StringIdentifier.commonRandomEng) {
+            detail = String(identifier: StringIdentifier.commonAllEng)
         }
 
         let attrs1 = [NSAttributedString.Key.font: Font.labelTag(),

@@ -18,34 +18,34 @@ enum SettingOption: Int {
         switch self {
         case .gender:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.GenderTitleEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.GenderTitlePt)
+            case .english:
+                return String(identifier: StringIdentifier.genderTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.genderTitlePt)
             }
 
         case .nationality:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.NationalityTitleEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.NationalityTitlePt)
+            case .english:
+                return String(identifier: StringIdentifier.nationalityTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.nationalityTitlePt)
             }
 
         case .ageRange:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.AgeRangeTitleEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.AgeRangeTitlePt)
+            case .english:
+                return String(identifier: StringIdentifier.ageRangeTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ageRangeTitlePt)
             }
 
         case .idiom:
             switch Language.current {
-            case .English:
-                return String(withCustomIdentifier: StringIdentifier.IdiomTitleEng)
-            case .Portuguese:
-                return String(withCustomIdentifier: StringIdentifier.IdiomTitlePt)
+            case .english:
+                return String(identifier: StringIdentifier.idiomTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.idiomTitlePt)
             }
         }
     }

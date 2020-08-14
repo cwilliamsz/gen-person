@@ -10,25 +10,25 @@ import Foundation
 
 enum ImageIdentifier: String, CustomIdentifier {
 
-    case IconBrazil         = "icon_brazil"
-    case IconUSA            = "icon_usa"
-    case IconMan            = "icon_man"
-    case IconWoman          = "icon_woman"
+    case iconBrazil         = "icon_brazil"
+    case iconUSA            = "icon_usa"
+    case iconMan            = "icon_man"
+    case iconWoman          = "icon_woman"
 
-    case IconPerson         = "icon_person"
-    case IconHistory        = "icon_history"
-    case IconSettings       = "icon_settings"
+    case iconPerson         = "icon_person"
+    case iconHistory        = "icon_history"
+    case iconSettings       = "icon_settings"
 
-    case IconAdd            = "icon_add"
-    case IconCopy           = "icon_copy"
-    case IconDown           = "icon_down"
-    case IconUp             = "icon_up"
-    case IconCircle         = "icon_circle"
-    case IconCircleSelected = "icon_circle_selected"
+    case iconAdd            = "icon_add"
+    case iconCopy           = "icon_copy"
+    case iconDown           = "icon_down"
+    case iconUp             = "icon_up"
+    case iconCircle         = "icon_circle"
+    case iconCircleSelected = "icon_circle_selected"
 
-    case IconGender         = "icon_gender"
-    case IconNationality    = "icon_nationality"
-    case IconAgeRange       = "icon_age_range"
-    case IconLanguage       = "icon_language"
+    case iconGender         = "icon_gender"
+    case iconNationality    = "icon_nationality"
+    case iconAgeRange       = "icon_age_range"
+    case iconLanguage       = "icon_language"
 
 }

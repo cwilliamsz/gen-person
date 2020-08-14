@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    private var vm = SettingsViewModel()
+    private var viewModel = SettingsViewModel()
     private var isActionCells = true
     private let defaultCenter = NotificationCenter.default
 
@@ -31,17 +31,17 @@ class SettingsViewController: UIViewController {
     private func loadData() {
         guard isActionCells else { return }
         let options: [[SettingOption]] = [[.gender, .nationality, .ageRange], [.idiom]]
-        vm.load(items: options)
+        viewModel.load(items: options)
     }
 
     private func registerNib() {
-        tableView.registerNib(UINib(nibName: TableViewCellIdentifier.SettingCell.rawValue, bundle: nil),
-        forCellReuseIdentifier: TableViewCellIdentifier.SettingCell)
+        tableView.registerNib(UINib(nibName: TableViewCellIdentifier.settingCell.rawValue, bundle: nil),
+        forCellReuseIdentifier: TableViewCellIdentifier.settingCell)
     }
 
     func viewConfig(isAction: Bool = false, items: [[Any]], titleDetail: String = String()) {
         isActionCells = isAction
-        vm.load(items: items)
+        viewModel.load(items: items)
         tableView.reloadData()
 
         guard !isAction else { return }
@@ -76,10 +76,10 @@ extension SettingsViewController: SetupProtocol {
 
     func applyLanguage() {
         switch Language.current {
-        case .Portuguese:
-            self.title = String(withCustomIdentifier: StringIdentifier.SettingsTitlePt)
-        case .English:
-            self.title = String(withCustomIdentifier: StringIdentifier.SettingsTitleEng)
+        case .portuguese:
+            self.title = String(identifier: StringIdentifier.settingsTitlePt)
+        case .english:
+            self.title = String(identifier: StringIdentifier.settingsTitleEng)
         }
     }
 
@@ -95,49 +95,52 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return vm.heightForHeaderInSection(isActionCells)
+        return viewModel.heightForHeaderInSection(isActionCells)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return vm.numberOfSections
+        return viewModel.numberOfSections
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.numberOfItems(section)
+        return viewModel.numberOfItems(section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifier.SettingCell, forIndexPath: indexPath) as? SettingTableViewCell
-        else {
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifier.settingCell,
+                                                                     forIndexPath: indexPath)
+        guard let settingCell = cell as? SettingTableViewCell else {
             return UITableViewCell()
         }
 
-        if isActionCells, let item = vm.getItem(indexPath: indexPath) {
-            cell.config(isAction: isActionCells, settingOption: item)
-
+        if isActionCells, let item = viewModel.getItem(indexPath: indexPath) {
+            settingCell.config(isAction: isActionCells, settingOption: item)
         } else {
-            cell.config(isAction: isActionCells,
-                        title: vm.getTitle(indexPath: indexPath),
-                        detail: vm.getDetail(indexPath: indexPath),
-                        isSelected: vm.isSelected(indexPath: indexPath))
+            settingCell.config(isAction: isActionCells,
+                               title: viewModel.getTitle(indexPath: indexPath),
+                               detail: viewModel.getDetail(indexPath: indexPath),
+                               isSelected: viewModel.isSelected(indexPath: indexPath))
         }
 
-        return cell
+        return settingCell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard isActionCells else {
-            vm.saveSelected(indexPath: indexPath)
+            viewModel.saveSelected(indexPath: indexPath)
             navigationController?.popViewController(animated: true)
             return
         }
 
-        guard let vc = SettingsViewController.fromNib(owner: self) as? SettingsViewController else { return }
-        vc.viewConfig(isAction: false,
-                      items: vm.getItemsForDetail(indexPath: indexPath),
-                      titleDetail: vm.getTitle(indexPath: indexPath))
+        guard let settingsVC = SettingsViewController.fromNib(owner: self) as? SettingsViewController else {
+            return
+        }
 
-        navigationController?.pushViewController(vc, animated: true)
+        settingsVC.viewConfig(isAction: false,
+                      items: viewModel.getItemsForDetail(indexPath: indexPath),
+                      titleDetail: viewModel.getTitle(indexPath: indexPath))
+
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
 
 }
@@ -146,8 +149,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
 extension SettingsViewController {
 
     private func setupNotifications() {
+        let notificationName = NSNotification.Name(rawValue: NotificationIdentifier.changeLanguage.rawValue)
         defaultCenter.addObserver(self, selector: #selector(changeLanguage),
-                                  name: NSNotification.Name(rawValue: NotificationIdentifier.ChangeLanguage.rawValue),
+                                  name: notificationName,
                                   object: nil)
     }
 

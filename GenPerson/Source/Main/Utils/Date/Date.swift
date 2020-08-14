@@ -11,7 +11,7 @@ import UIKit
 extension Date {
     var toString: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = String(withCustomIdentifier: StringIdentifier.CommonDateFormat)
+        dateFormatter.dateFormat = String(identifier: StringIdentifier.commonDateFormat)
         return dateFormatter.string(from: self)
     }
 
@@ -26,24 +26,24 @@ extension Date {
 
         if years > 0 {
             switch Language.current {
-            case .Portuguese:
-                return (years, String(withCustomIdentifier: StringIdentifier.PersonAgeYearPt), isBaby)
-            case .English:
-                return (years, String(withCustomIdentifier: StringIdentifier.PersonAgeYearEng), isBaby)
+            case .portuguese:
+                return (years, String(identifier: StringIdentifier.personAgeYearPt), isBaby)
+            case .english:
+                return (years, String(identifier: StringIdentifier.personAgeYearEng), isBaby)
             }
         } else if months > 0 {
             switch Language.current {
-            case .Portuguese:
-                return (months, String(withCustomIdentifier: StringIdentifier.PersonAgeMonthPt), isBaby)
-            case .English:
-                return (months, String(withCustomIdentifier: StringIdentifier.PersonAgeMonthEng), isBaby)
+            case .portuguese:
+                return (months, String(identifier: StringIdentifier.personAgeMonthPt), isBaby)
+            case .english:
+                return (months, String(identifier: StringIdentifier.personAgeMonthEng), isBaby)
             }
         } else {
             switch Language.current {
-            case .Portuguese:
-                return (days, String(withCustomIdentifier: StringIdentifier.PersonAgeDayPt), isBaby)
-            case .English:
-                return (days, String(withCustomIdentifier: StringIdentifier.PersonAgeDayEng), isBaby)
+            case .portuguese:
+                return (days, String(identifier: StringIdentifier.personAgeDayPt), isBaby)
+            case .english:
+                return (days, String(identifier: StringIdentifier.personAgeDayEng), isBaby)
             }
         }
     }

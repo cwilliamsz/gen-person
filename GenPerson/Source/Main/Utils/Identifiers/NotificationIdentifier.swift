@@ -9,7 +9,5 @@
 import Foundation
 
 enum NotificationIdentifier: String {
-
-    case ChangeLanguage = "change_language"
-
+    case changeLanguage = "change_language"
 }
