@@ -60,11 +60,13 @@ class HistoryTableViewCell: UITableViewCell {
 
         switch gender {
         case .female:
-            buttonProfile.setImage(UIImage(identifier: ImageIdentifier.iconWoman).withRenderingMode(.alwaysOriginal),
+            let icon = UIImage(identifier: ImageIdentifier.iconWoman)
+            buttonProfile.setImage(icon?.withRenderingMode(.alwaysOriginal),
             for: .normal)
             buttonProfile.layer.borderColor = Color.female().cgColor
         case .masculine:
-            buttonProfile.setImage(UIImage(identifier: ImageIdentifier.iconMan).withRenderingMode(.alwaysOriginal),
+            let icon = UIImage(identifier: ImageIdentifier.iconMan)
+            buttonProfile.setImage(icon?.withRenderingMode(.alwaysOriginal),
             for: .normal)
             buttonProfile.layer.borderColor = Color.masculine().cgColor
         default:

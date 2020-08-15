@@ -24,7 +24,8 @@ class HistoryViewModel {
     private let _genders: [Gender]                  = [.random, .female, .masculine]
     private let _nationalities: [Country]           = [.random, .brazil, .unitedStates]
     private let _sectionsFilter: [SettingOption]    = [.ageRange, .gender, .nationality]
-    private let _ageRanges: [AgeRange]              = [.random, .older, .minor, .baby, .child, .teen, .young, .adult, .elderly]
+    private let _ageRanges: [AgeRange]              = [.random, .older, .minor, .baby, .child,
+                                                       .teen, .young, .adult, .elderly]
 
     private var _searchText     = String()
 

@@ -11,9 +11,17 @@ import RealmSwift
 import Realm
 
 class DbSetup {
+    private var connection: Realm {
+        do {
+            let realm = try Realm()
+            return realm
+        } catch {
+            fatalError("DbSetup fail to load realm \(error.localizedDescription)")
+        }
+    }
+
     func loadDB() {
-        let realm = try! Realm()
-        guard realm.objects(Name.self).isEmpty else {
+        guard connection.objects(Name.self).isEmpty else {
             return
         }
 
@@ -22,8 +30,6 @@ class DbSetup {
 
     private func insertData() {
         let data = Bundle.main.decode([NameData].self, from: "names.json")
-        let realm = try! Realm()
-
         data.forEach { (item) in
             let name = Name()
             name.id = item.id
@@ -32,8 +38,12 @@ class DbSetup {
             name.country = item.country
             name.isLastName = item.isLastName
 
-            try! realm.write {
-                realm.add(name)
+            do {
+                try connection.write {
+                    connection.add(name)
+                }
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }

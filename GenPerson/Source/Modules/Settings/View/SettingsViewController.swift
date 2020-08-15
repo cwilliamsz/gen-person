@@ -107,7 +107,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifier.settingCell,
+        let cell = tableView.dequeueReusableCell(TableViewCellIdentifier.settingCell,
                                                                      forIndexPath: indexPath)
         guard let settingCell = cell as? SettingTableViewCell else {
             return UITableViewCell()

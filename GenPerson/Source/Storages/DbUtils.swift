@@ -13,7 +13,12 @@ open class DbUtils {
     private var nationalityWithoutRandom: Country!
 
     private var connection: Realm {
-        return try! Realm()
+        do {
+            let realm = try Realm()
+            return realm
+        } catch {
+            fatalError("DbUtils fail to load realm \(error.localizedDescription)")
+        }
     }
 
 }

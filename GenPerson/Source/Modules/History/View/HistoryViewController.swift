@@ -50,7 +50,12 @@ class HistoryViewController: UIViewController {
     }
 
     private func reload() {
-        _ = viewModel.searchIsActive ? searchBar(searchBar, textDidChange: viewModel.searchText) : viewModel.reloadData()
+        if viewModel.searchIsActive {
+            searchBar(searchBar, textDidChange: viewModel.searchText)
+        } else {
+            viewModel.reloadData()
+        }
+
         tableView.reloadData()
     }
 
@@ -61,16 +66,17 @@ class HistoryViewController: UIViewController {
     }
 
     private func registerNib() {
-        tableView.registerNib(UINib(nibName: TableViewCellIdentifier.historyCell.rawValue, bundle: nil),
-                                    forCellReuseIdentifier: TableViewCellIdentifier.historyCell)
+        let historyCellIdentifier = TableViewCellIdentifier.historyCell.rawValue
+        tableView.register(UINib(nibName: historyCellIdentifier, bundle: nil),
+                                    forCellReuseIdentifier: historyCellIdentifier)
 
-        collectionViewFilter.registerNib(UINib.init(nibName: CollectionViewCellIdentifier.filterCell.rawValue,
-                                                    bundle: nil),
-                                         forCellWithReuseIdentifier: CollectionViewCellIdentifier.filterCell.rawValue)
+        let filterCellIdentifier = CollectionViewCellIdentifier.filterCell.rawValue
+        collectionViewFilter.registerNib(UINib.init(nibName: filterCellIdentifier, bundle: nil),
+                                         forCellWithReuseIdentifier: filterCellIdentifier)
 
-        collectionViewSection.registerNib(UINib.init(nibName: CollectionViewCellIdentifier.sectionFilterCell.rawValue,
-                                                    bundle: nil),
-                                          forCellWithReuseIdentifier: CollectionViewCellIdentifier.sectionFilterCell.rawValue)
+        let sectionFilterCellIdentifier = CollectionViewCellIdentifier.sectionFilterCell.rawValue
+        collectionViewSection.registerNib(UINib.init(nibName: sectionFilterCellIdentifier, bundle: nil),
+                                          forCellWithReuseIdentifier: sectionFilterCellIdentifier)
     }
 
     private func setupCollectionViewFilter() {
@@ -182,9 +188,12 @@ extension HistoryViewController: SetupProtocol {
         buttonFilter.backgroundColor    = .clear
 
         buttonFilter.titleLabel?.font           = Font.buttonFilter()
-        buttonFilter.semanticContentAttribute   = UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
 
-        buttonFilter.setImage(UIImage(identifier: ImageIdentifier.iconDown).withRenderingMode(.alwaysTemplate), for: .normal)
+        let isRightToLeft = UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+        buttonFilter.semanticContentAttribute   = isRightToLeft ? .forceLeftToRight : .forceRightToLeft
+
+        let icon = UIImage(identifier: ImageIdentifier.iconDown)
+        buttonFilter.setImage(icon?.withRenderingMode(.alwaysTemplate), for: .normal)
 
         constraintCollectionViewSectionHeight.constant  = 0
         constraintCollectionViewFilterHeight.constant   = 0
@@ -220,7 +229,8 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifier.historyCell, forIndexPath: indexPath) as! HistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(TableViewCellIdentifier.historyCell,
+                                                 forIndexPath: indexPath) as! HistoryTableViewCell
         if let item = viewModel.item(for: indexPath.row) {
             cell.config(item)
         }
@@ -269,13 +279,15 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
         return viewModel.numberOfItemsInSection(tag: collectionView.tag)
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 1 {
-
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellIdentifier.sectionFilterCell.rawValue,
+            let sectionFilterCellIdentifier = CollectionViewCellIdentifier.sectionFilterCell.rawValue
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: sectionFilterCellIdentifier,
                                                           for: indexPath) as! SectionFilterCollectionViewCell
 
-            if let settingOption = viewModel.itemForCell(row: indexPath.row, tag: collectionView.tag) as? SettingOption {
+            if let settingOption = viewModel.itemForCell(row: indexPath.row,
+                                                         tag: collectionView.tag) as? SettingOption {
                 cell.config(settingOption: settingOption,
                             selected: viewModel.filterSelected,
                             item: viewModel.optionSelected(settingOption) as Any)
@@ -284,11 +296,12 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
             return cell
 
         } else {
-
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellIdentifier.filterCell.rawValue,
+            let filterCellIdentifier = CollectionViewCellIdentifier.filterCell.rawValue
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: filterCellIdentifier,
                                                           for: indexPath) as! FilterCollectionViewCell
 
-            cell.config(item: viewModel.itemForCell(row: indexPath.row, tag: collectionView.tag) as Any, selected: viewModel.optionSelected() as Any)
+            cell.config(item: viewModel.itemForCell(row: indexPath.row, tag: collectionView.tag) as Any,
+                        selected: viewModel.optionSelected() as Any)
             return cell
 
         }
@@ -318,9 +331,10 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension HistoryViewController {
 
     private func setupNotifications() {
+        let notificationName = NSNotification.Name(rawValue: NotificationIdentifier.changeLanguage.rawValue)
         defaultCenter.addObserver(self,
                                   selector: #selector(changeLanguage),
-                                  name: NSNotification.Name(rawValue: NotificationIdentifier.changeLanguage.rawValue), object: nil)
+                                  name: notificationName, object: nil)
     }
 
     @objc private func changeLanguage() {

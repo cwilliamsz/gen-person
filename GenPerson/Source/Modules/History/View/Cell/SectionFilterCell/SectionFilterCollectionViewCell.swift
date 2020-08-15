@@ -84,9 +84,10 @@ class SectionFilterCollectionViewCell: UICollectionViewCell {
         labelTitle.attributedText = attributedString1
 
         let isSelected = settingOption == selected
-        labelTitle.backgroundColor     = isSelected ? Color.mainColorBackground() : Color.mainBackground()
-        labelTitle.layer.borderColor   = isSelected ? Color.mainColorBackground().cgColor : UIColor.clear.cgColor
-        labelTitle.backgroundColor     = isSelected ? Color.mainColorBackground() : Color.subBackground()
+        let mainColor = Color.mainColorBackground()
+        labelTitle.backgroundColor     = isSelected ? mainColor : Color.mainBackground()
+        labelTitle.layer.borderColor   = isSelected ? mainColor.cgColor : UIColor.clear.cgColor
+        labelTitle.backgroundColor     = isSelected ? mainColor : Color.subBackground()
         labelTitle.layer.borderWidth   = isSelected ? 2 : 0
 
     }

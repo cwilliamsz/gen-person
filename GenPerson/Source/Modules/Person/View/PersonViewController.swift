@@ -130,10 +130,12 @@ class PersonViewController: UIViewController {
         let gender = Gender(rawValue: person.sexOfBirth)
         switch gender {
         case .female:
-            imageViewProfile.image = UIImage(identifier: ImageIdentifier.iconWoman).withRenderingMode(.alwaysOriginal)
+            let icon = UIImage(identifier: ImageIdentifier.iconWoman)
+            imageViewProfile.image = icon?.withRenderingMode(.alwaysOriginal)
             viewProfile.layer.borderColor = Color.female().cgColor
         case .masculine:
-            imageViewProfile.image = UIImage(identifier: ImageIdentifier.iconMan).withRenderingMode(.alwaysOriginal)
+            let icon = UIImage(identifier: ImageIdentifier.iconMan)
+            imageViewProfile.image = icon?.withRenderingMode(.alwaysOriginal)
             viewProfile.layer.borderColor = Color.masculine().cgColor
         default:
             break
@@ -151,7 +153,11 @@ extension PersonViewController {
     }
 
     @IBAction func copyValue(_ sender: Any) {
-        guard !(labelTextName.text?.isEmpty ?? true), let button: UIButton = sender as? UIButton else { return }
+        guard !(labelTextName.text?.isEmpty ?? true),
+              let button: UIButton = sender as? UIButton else {
+            return
+        }
+
         var text = ""
 
         switch button.tag {
