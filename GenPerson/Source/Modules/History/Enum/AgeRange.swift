@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AgeRange: Int {
+enum AgeRange: Int, DetailProtocol {
     case random     = 1
     case older      = 2
     case minor      = 3
@@ -54,71 +54,30 @@ enum AgeRange: Int {
         return AgeRange(rawValue: UserDefaultsUtils.current(key: self.key)) ?? .random
     }
 
-    func raw() -> String {
+    func title() -> String {
+        return ""
+    }
+
+    func description() -> String {
         switch self {
         case .random:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.commonRandomEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.commonRandomPt)
-            }
+            return String(identifier: StringIdentifier.commonRandomPt)
         case .older:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeOlderEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeOlderPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeOlderPt)
         case .minor:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeMinorEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeMinorPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeMinorPt)
         case .baby:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeBabyEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeBabyPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeBabyPt)
         case .child:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeChildEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeChildPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeChildPt)
         case .teen:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeTeenEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeTeenPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeTeenPt)
         case .young:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeYoungEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeYoungPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeYoungPt)
         case .adult:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeAdultEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeAdultPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeAdultPt)
         case .elderly:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ageRangeElderlyEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.ageRangeElderlyPt)
-            }
+            return String(identifier: StringIdentifier.ageRangeElderlyPt)
         }
     }
 }

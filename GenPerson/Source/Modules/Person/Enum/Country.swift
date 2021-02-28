@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Country: Int {
+enum Country: Int, DetailProtocol {
     case random = 0
     case brazil = 1
     case unitedStates = 2
@@ -25,29 +25,18 @@ enum Country: Int {
         return Country(rawValue: UserDefaultsUtils.current(key: self.key)) ?? .brazil
     }
 
-    func nationality() -> String {
+    func title() -> String {
+        return ""
+    }
+
+    func description() -> String {
         switch self {
         case .random:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.commonRandomEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.commonRandomPt)
-            }
+            return String(identifier: StringIdentifier.commonRandomPt)
         case .brazil:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.nationalityBREng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.nationalityBRPt)
-            }
+            return String(identifier: StringIdentifier.nationalityBRPt)
         case .unitedStates:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.nationalityUSAEng)
-            case .portuguese:
-                return String(identifier: StringIdentifier.nationalityUSAPt)
-            }
+            return String(identifier: StringIdentifier.nationalityUSAPt)
         }
     }
 }

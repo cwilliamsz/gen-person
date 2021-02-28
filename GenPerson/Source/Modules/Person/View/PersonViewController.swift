@@ -102,15 +102,15 @@ class PersonViewController: UIViewController {
         labelTextName.text          = person.name
         textFieldDocument.text      = person.document
         textFieldDateOfBirth.text   = person.dateOfBirth.toString
-        textFieldSexOfBirth.text    = Gender(rawValue: person.sexOfBirth)?.raw()
-        textFieldEthnicGroup.text   = EthnicGroup(rawValue: person.ethnicGroup)?.raw()
+        textFieldSexOfBirth.text    = Gender(rawValue: person.sexOfBirth)?.description()
+        textFieldEthnicGroup.text   = EthnicGroup(rawValue: person.ethnicGroup)?.description()
         textFieldEmail.text         = person.email
         textFieldPhone.text         = person.phone
 
         labelAge.text = viewModel.getAge(person)
 
         labelTextContact.text       = person.contactName
-        textFieldRelationship.text  = Relationship(rawValue: person.contactRelationship)?.raw()
+        textFieldRelationship.text  = Relationship(rawValue: person.contactRelationship)?.description()
         textFieldContactPhone.text  = person.contactPhone
 
         let documentIsEnabled       = !person.document.isEmpty
@@ -276,52 +276,30 @@ extension PersonViewController: SetupProtocol {
     }
 
     func applyLanguage() {
-        switch Language.current {
-        case .portuguese:
-            self.title              = String(identifier: StringIdentifier.personTitlePt)
-            labelName.text          = String(identifier: StringIdentifier.personNamePt)
-            labelDocument.text      = String(identifier: StringIdentifier.personDocumentPt)
-            labelDateOfBirth.text   = String(identifier: StringIdentifier.personDateOfBirthPt)
-            labelSexOfBirth.text    = String(identifier: StringIdentifier.personSexOfBirthPt)
-            labelEthnicGroup.text   = String(identifier: StringIdentifier.personEthnicGroupPt)
-            labelContact.text       = String(identifier: StringIdentifier.personContactPt)
-            labelRelationship.text  = String(identifier: StringIdentifier.personRelationshipPt)
-            labelPhone.text         = String(identifier: StringIdentifier.personPhonePt)
-            labelEmail.text         = String(identifier: StringIdentifier.personEmailPt)
-            labelContactPhone.text  = String(identifier: StringIdentifier.personPhonePt)
+        title              = String(identifier: StringIdentifier.personTitlePt)
+        labelName.text          = String(identifier: StringIdentifier.personNamePt)
+        labelDocument.text      = String(identifier: StringIdentifier.personDocumentPt)
+        labelDateOfBirth.text   = String(identifier: StringIdentifier.personDateOfBirthPt)
+        labelSexOfBirth.text    = String(identifier: StringIdentifier.personSexOfBirthPt)
+        labelEthnicGroup.text   = String(identifier: StringIdentifier.personEthnicGroupPt)
+        labelContact.text       = String(identifier: StringIdentifier.personContactPt)
+        labelRelationship.text  = String(identifier: StringIdentifier.personRelationshipPt)
+        labelPhone.text         = String(identifier: StringIdentifier.personPhonePt)
+        labelEmail.text         = String(identifier: StringIdentifier.personEmailPt)
+        labelContactPhone.text  = String(identifier: StringIdentifier.personPhonePt)
 
-            buttonAdd.setTitle(String(identifier: StringIdentifier.commonGeneratePt), for: .normal)
+        buttonAdd.setTitle(String(identifier: StringIdentifier.commonGeneratePt), for: .normal)
 
-            self.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewPt),
-                                            image: UIImage(identifier: ImageIdentifier.iconAdd),
-                                            tag: 0)
+        self.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewPt),
+                                        image: UIImage(identifier: ImageIdentifier.iconAdd),
+                                        tag: 0)
 
-            guard tabBarController?.tabBar.items?.count ?? 0 > 2 else { return }
-            tabBarController?.tabBar.items![1].title = String(identifier: StringIdentifier.historyTitlePt)
-            tabBarController?.tabBar.items![2].title = String(identifier: StringIdentifier.settingsTitlePt)
-        case .english:
-            self.title              = String(identifier: StringIdentifier.personTitleEng)
-            labelName.text          = String(identifier: StringIdentifier.personNameEng)
-            labelDocument.text      = String(identifier: StringIdentifier.personDocumentEng)
-            labelDateOfBirth.text   = String(identifier: StringIdentifier.personDateOfBirthEng)
-            labelSexOfBirth.text    = String(identifier: StringIdentifier.personSexOfBirthEng)
-            labelEthnicGroup.text   = String(identifier: StringIdentifier.personEthnicGroupEng)
-            labelContact.text       = String(identifier: StringIdentifier.personContactEng)
-            labelPhone.text         = String(identifier: StringIdentifier.personPhoneEng)
-            labelEmail.text         = String(identifier: StringIdentifier.personEmailEng)
-            labelRelationship.text  = String(identifier: StringIdentifier.personRelationshipEng)
-            labelContactPhone.text  = String(identifier: StringIdentifier.personPhoneEng)
-
-            buttonAdd.setTitle(String(identifier: StringIdentifier.commonGenerateEng), for: .normal)
-
-            tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewEng),
-                                            image: UIImage(identifier: ImageIdentifier.iconAdd),
-                                            tag: 0)
-
-            guard self.tabBarController?.tabBar.items?.count ?? 0 > 2 else { return }
-            tabBarController?.tabBar.items![1].title = String(identifier: StringIdentifier.historyTitleEng)
-            tabBarController?.tabBar.items![2].title = String(identifier: StringIdentifier.settingsTitleEng)
+        guard tabBarController?.tabBar.items?.count ?? 0 > 2 else {
+            return
         }
+
+        tabBarController?.tabBar.items![1].title = String(identifier: StringIdentifier.historyTitlePt)
+        tabBarController?.tabBar.items![2].title = String(identifier: StringIdentifier.settingsTitlePt)
     }
 
 }

@@ -30,7 +30,7 @@ class SettingsViewController: UIViewController {
 
     private func loadData() {
         guard isActionCells else { return }
-        let options: [[SettingOption]] = [[.gender, .nationality, .ageRange], [.idiom]]
+        let options: [[SettingOption]] = [[.gender, .nationality, .ageRange]]
         viewModel.load(items: options)
     }
 
@@ -75,12 +75,7 @@ extension SettingsViewController: SetupProtocol {
     }
 
     func applyLanguage() {
-        switch Language.current {
-        case .portuguese:
-            self.title = String(identifier: StringIdentifier.settingsTitlePt)
-        case .english:
-            self.title = String(identifier: StringIdentifier.settingsTitleEng)
-        }
+        title = String(identifier: StringIdentifier.settingsTitlePt)
     }
 
 }

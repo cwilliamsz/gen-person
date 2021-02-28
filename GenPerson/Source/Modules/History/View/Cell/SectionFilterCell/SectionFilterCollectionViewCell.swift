@@ -22,53 +22,28 @@ class SectionFilterCollectionViewCell: UICollectionViewCell {
         labelTitle.layer.masksToBounds = true
     }
 
-    func config(settingOption: SettingOption, selected: SettingOption, item: Any) {
+    func config(settingOption: SettingOption, selected: SettingOption, item: DetailProtocol) {
         var title = String()
         var detail = String()
 
         switch settingOption {
         case .ageRange:
-            switch Language.current {
-            case .english:
-                title = String(identifier: StringIdentifier.ageRangeTitleEng)
+            title = item.title()
 
-            case .portuguese:
-                title = String(identifier: StringIdentifier.ageRangeTitlePt)
+            guard let ageRange = item as? AgeRange else {
+                return
             }
 
-            let range = (item as! AgeRange).range()
+            let range = ageRange.range()
             detail = "\(range.0)-\(range.1)"
 
-        case .gender:
-            switch Language.current {
-            case .english:
-                title = String(identifier: StringIdentifier.genderTitleEng)
-
-            case .portuguese:
-                title = String(identifier: StringIdentifier.genderTitlePt)
-            }
-
-            detail = (item as! Gender).raw()
-
-        case .nationality:
-            switch Language.current {
-            case .english:
-                title = String(identifier: StringIdentifier.nationalityTitleEng)
-
-            case .portuguese:
-                title = String(identifier: StringIdentifier.nationalityTitlePt)
-            }
-
-            detail = (item as! Country).nationality()
-
         default:
-            break
+            title = item.title()
+            detail = item.description()
         }
 
         if detail == String(identifier: StringIdentifier.commonRandomPt) {
             detail = String(identifier: StringIdentifier.commonAllPt)
-        } else if detail == String(identifier: StringIdentifier.commonRandomEng) {
-            detail = String(identifier: StringIdentifier.commonAllEng)
         }
 
         let attrs1 = [NSAttributedString.Key.font: Font.labelTag(),
@@ -89,7 +64,6 @@ class SectionFilterCollectionViewCell: UICollectionViewCell {
         labelTitle.layer.borderColor   = isSelected ? mainColor.cgColor : UIColor.clear.cgColor
         labelTitle.backgroundColor     = isSelected ? mainColor : Color.subBackground()
         labelTitle.layer.borderWidth   = isSelected ? 2 : 0
-
     }
 
 }

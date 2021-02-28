@@ -47,7 +47,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
 
     private func setGender(gender: Gender, isSelected: Bool) {
-        labelTitle.text         = gender.raw()
+        labelTitle.text         = gender.description()
         labelIcon.isHidden      = true
         imageViewIcon.isHidden  = false
 
@@ -72,7 +72,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
         if range.0 == 0 && range.1 == 100 {
             setTextAllWhenRandom()
         } else {
-            labelTitle.text = ageRange.raw()
+            labelTitle.text = ageRange.description()
         }
 
         labelIcon.text          = "\(range.0)-\(range.1)"
@@ -83,7 +83,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
 
     private func setCountry(country: Country, isSelected: Bool) {
-        labelTitle.text         = country.nationality()
+        labelTitle.text         = country.description()
         labelIcon.isHidden      = true
         imageViewIcon.isHidden  = false
 
@@ -110,12 +110,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
 
     private func setTextAllWhenRandom() {
-        switch Language.current {
-        case .portuguese:
-            labelTitle.text = String(identifier: StringIdentifier.commonAllPt)
-        case .english:
-            labelTitle.text = String(identifier: StringIdentifier.commonAllEng)
-        }
+        labelTitle.text = String(identifier: StringIdentifier.commonAllPt)
     }
 
 }

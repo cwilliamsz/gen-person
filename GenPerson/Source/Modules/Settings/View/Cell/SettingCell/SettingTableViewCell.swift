@@ -56,28 +56,22 @@ class SettingTableViewCell: UITableViewCell {
 
         switch settingOption {
         case .gender:
-            detail = Gender.current.raw()
+            detail = Gender.current.description()
 
             viewIcon.backgroundColor = Gender.color
             icon = UIImage(identifier: ImageIdentifier.iconGender)
 
         case .nationality:
-            detail = Country.currentNationality.nationality()
+            detail = Country.currentNationality.description()
 
             viewIcon.backgroundColor = Country.color
             icon = UIImage(identifier: ImageIdentifier.iconNationality)
 
         case .ageRange:
-            detail = AgeRange.current.raw()
+            detail = AgeRange.current.description()
 
             viewIcon.backgroundColor = AgeRange.color
             icon = UIImage(identifier: ImageIdentifier.iconAgeRange)
-
-        case .idiom:
-            detail = Language.current.raw()
-
-            viewIcon.backgroundColor = Language.color
-            icon = UIImage(identifier: ImageIdentifier.iconLanguage)
         }
 
         viewIcon.layer.cornerRadius = 8
@@ -85,7 +79,7 @@ class SettingTableViewCell: UITableViewCell {
         iconImageView.image = icon.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = .white
 
-        labelTitle.text = settingOption.raw()
+        labelTitle.text = settingOption.title()
         labelDeatil.text = detail
     }
 

@@ -248,7 +248,7 @@ class PersonViewModel {
             phoneSize = 9
 
         case .unitedStates:
-            prefix = String(identifier: StringIdentifier.phonePrefixEng)
+            prefix = String(identifier: StringIdentifier.phonePrefixPt)
             areaCodes = [209, 213, 310, 323, 408, 415, 510, 530, 559,
                          562, 619, 626, 650, 661, 707, 714, 760, 805,
                          818, 831, 858, 909, 916, 925, 949]

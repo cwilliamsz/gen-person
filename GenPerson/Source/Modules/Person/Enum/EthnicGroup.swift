@@ -8,59 +8,29 @@
 
 import Foundation
 
-enum EthnicGroup: Int {
+enum EthnicGroup: Int, DetailProtocol {
     case white  = 1
     case black  = 2
     case brown  = 3
     case red    = 4
     case yellow = 5
 
-    func raw() -> String {
+    func title() -> String {
+        return ""
+    }
+
+    func description() -> String {
         switch self {
         case .white:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ethnicGroupWhiteEng)
-
-            case .portuguese:
-                return String(identifier: StringIdentifier.ethnicGroupWhitePt)
-            }
-
+            return String(identifier: StringIdentifier.ethnicGroupWhitePt)
         case .black:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ethnicGroupBlackEng)
-
-            case .portuguese:
-                return String(identifier: StringIdentifier.ethnicGroupBlackPt)
-            }
-
+            return String(identifier: StringIdentifier.ethnicGroupBlackPt)
         case .brown:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ethnicGroupBrownEng)
-
-            case .portuguese:
-                return String(identifier: StringIdentifier.ethnicGroupBrownPt)
-            }
-
+            return String(identifier: StringIdentifier.ethnicGroupBrownPt)
         case .red:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ethnicGroupRedEng)
-
-            case .portuguese:
-                return String(identifier: StringIdentifier.ethnicGroupRedPt)
-            }
-
+            return String(identifier: StringIdentifier.ethnicGroupRedPt)
         case .yellow:
-            switch Language.current {
-            case .english:
-                return String(identifier: StringIdentifier.ethnicGroupYellowEng)
-
-            case .portuguese:
-                return String(identifier: StringIdentifier.ethnicGroupYellowPt)
-            }
+            return String(identifier: StringIdentifier.ethnicGroupYellowPt)
         }
     }
 }

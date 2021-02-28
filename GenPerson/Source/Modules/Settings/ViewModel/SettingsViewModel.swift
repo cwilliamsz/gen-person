@@ -35,21 +35,15 @@ class SettingsViewModel {
     }
 
     func getTitle(indexPath: IndexPath) -> String {
-        let value = items[indexPath.section][indexPath.row]
-        switch value {
-        case is Gender:
-            return (value as! Gender).raw()
-        case is Country:
-            return (value as! Country).nationality()
-        case is AgeRange:
-            return (value as! AgeRange).raw()
-        case is SettingOption:
-            return (value as! SettingOption).raw()
-        case is LanguageType:
-            return (value as! LanguageType).raw()
-        default:
-            return String()
+        guard let value = items[indexPath.section][indexPath.row] as? DetailProtocol else {
+            return ""
         }
+
+        guard let settingOption = value as? SettingOption else {
+            return value.description()
+        }
+
+        return settingOption.title()
     }
 
     func getDetail(indexPath: IndexPath) -> String {
@@ -57,20 +51,17 @@ class SettingsViewModel {
 
         switch value {
         case is SettingOption:
-            guard let item = value as? SettingOption else { return String() }
-            switch item {
-            case .gender:
-                return Gender.current.raw()
-            case .nationality:
-                return Country.currentNationality.nationality()
-            case .ageRange:
-                return AgeRange.current.raw()
-            case .idiom:
-                return Language.current.raw()
+            guard let item = value as? SettingOption else {
+                return String()
             }
 
+            return item.description()
+
         case is AgeRange:
-            guard let range = (value as? AgeRange)?.range() else { return String() }
+            guard let range = (value as? AgeRange)?.range() else {
+                return String()
+            }
+
             return "\(range.0)-\(range.1)"
 
         default:
@@ -88,8 +79,6 @@ class SettingsViewModel {
             return (value as! Country) == Country.currentNationality
         case is AgeRange:
             return (value as! AgeRange) == AgeRange.current
-        case is LanguageType:
-            return (value as! LanguageType) == Language.current
         default:
             return false
         }
@@ -105,24 +94,9 @@ class SettingsViewModel {
             UserDefaultsUtils.change(key: Country.key, value: (value as! Country).rawValue)
         case is AgeRange:
             UserDefaultsUtils.change(key: AgeRange.key, value: (value as! AgeRange).rawValue)
-        case is LanguageType:
-            changeLanguage(language: value as! LanguageType)
         default:
             break
         }
-    }
-
-    private func changeLanguage(language: LanguageType) {
-        switch language {
-        case .english:
-            Language.change(type: .english)
-
-        case .portuguese:
-            Language.change(type: .portuguese)
-        }
-
-        let notificationName = NSNotification.Name(rawValue: NotificationIdentifier.changeLanguage.rawValue)
-        NotificationCenter.default.post(name: notificationName, object: nil)
     }
 
     func getItemsForDetail(indexPath: IndexPath) -> [[Any]] {
@@ -139,9 +113,6 @@ class SettingsViewModel {
         case .ageRange:
             let values: [[AgeRange]] = [[.random, .minor, .older, .baby, .child,
                                          .teen, .young, .adult, .elderly]]
-            return values
-        case .idiom:
-            let values: [[LanguageType]] = [[.portuguese, .english]]
             return values
         }
     }
