@@ -8,19 +8,45 @@
 
 import Foundation
 
-enum SettingOption: Int, DetailProtocol {
+enum SettingOption: Int {
     case gender         = 1
     case nationality    = 2
     case ageRange       = 3
+    case idiom          = 4
 
-    func title() -> String {
+    func raw() -> String {
         switch self {
         case .gender:
-            return String(identifier: StringIdentifier.genderTitlePt)
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.genderTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.genderTitlePt)
+            }
+
         case .nationality:
-            return String(identifier: StringIdentifier.nationalityTitlePt)
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.nationalityTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.nationalityTitlePt)
+            }
+
         case .ageRange:
-            return String(identifier: StringIdentifier.ageRangeTitlePt)
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.ageRangeTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.ageRangeTitlePt)
+            }
+
+        case .idiom:
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.idiomTitleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.idiomTitlePt)
+            }
         }
     }
 }

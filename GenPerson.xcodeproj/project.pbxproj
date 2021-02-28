@@ -41,6 +41,8 @@
 		56642BAD2477418900962E68 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56642BAB2477418900962E68 /* SettingsViewController.xib */; };
 		56671C6C2474A81D009DBC05 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56671C6B2474A81D009DBC05 /* SettingsViewModel.swift */; };
 		56671C6E2474B0FC009DBC05 /* SettingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56671C6D2474B0FC009DBC05 /* SettingOption.swift */; };
+		5689C3872464B3AB005381DC /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689C3862464B3AB005381DC /* Language.swift */; };
+		5689C3892464B44D005381DC /* LanguageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689C3882464B44D005381DC /* LanguageType.swift */; };
 		5689C38B2464B713005381DC /* ImageIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689C38A2464B713005381DC /* ImageIdentifier.swift */; };
 		5689C38D2464B82C005381DC /* UIImage+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689C38C2464B82C005381DC /* UIImage+Identifier.swift */; };
 		56A23E452462220800992CB1 /* SetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A23E442462220800992CB1 /* SetupProtocol.swift */; };
@@ -64,7 +66,6 @@
 		56E8B5B02473801D0053547D /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E8B5AE2473801D0053547D /* SettingTableViewCell.xib */; };
 		73142ED6D44DB7D6213FF722 /* Pods_GenPersonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA110EC1A3A4FC9BAA31351 /* Pods_GenPersonTests.framework */; };
 		8CC400318E80D3831779B4CC /* Pods_GenPerson_GenPersonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C436E8BD7ED94CFA8B173D /* Pods_GenPerson_GenPersonUITests.framework */; };
-		BF7A8AFF24E8370600D538EE /* DescriptionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A8AFE24E8370600D538EE /* DescriptionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		56642BAB2477418900962E68 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		56671C6B2474A81D009DBC05 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		56671C6D2474B0FC009DBC05 /* SettingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOption.swift; sourceTree = "<group>"; };
+		5689C3862464B3AB005381DC /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		5689C3882464B44D005381DC /* LanguageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageType.swift; sourceTree = "<group>"; };
 		5689C38A2464B713005381DC /* ImageIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageIdentifier.swift; sourceTree = "<group>"; };
 		5689C38C2464B82C005381DC /* UIImage+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Identifier.swift"; sourceTree = "<group>"; };
 		56A23E442462220800992CB1 /* SetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProtocol.swift; sourceTree = "<group>"; };
@@ -152,7 +155,6 @@
 		9595297DECD26E4A0FCE9771 /* Pods-GenPersonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenPersonTests.release.xcconfig"; path = "Target Support Files/Pods-GenPersonTests/Pods-GenPersonTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EA110EC1A3A4FC9BAA31351 /* Pods_GenPersonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GenPersonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA38A1EF893F8B154372757D /* Pods-GenPerson-GenPersonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenPerson-GenPersonUITests.debug.xcconfig"; path = "Target Support Files/Pods-GenPerson-GenPersonUITests/Pods-GenPerson-GenPersonUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		BF7A8AFE24E8370600D538EE /* DescriptionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionProtocol.swift; sourceTree = "<group>"; };
 		C2C436E8BD7ED94CFA8B173D /* Pods_GenPerson_GenPersonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GenPerson_GenPersonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2646C6122754116255F6E0C /* Pods-GenPerson-GenPersonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenPerson-GenPersonUITests.release.xcconfig"; path = "Target Support Files/Pods-GenPerson-GenPersonUITests/Pods-GenPerson-GenPersonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E55C1448CDBB1140416EF46B /* Pods-GenPerson.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenPerson.debug.xcconfig"; path = "Target Support Files/Pods-GenPerson/Pods-GenPerson.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +222,15 @@
 				563E4F79247B17F700D419F1 /* CollectionViewCellIdentifier.swift */,
 			);
 			path = Identifiers;
+			sourceTree = "<group>";
+		};
+		565C088C246792AF00890D33 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				5689C3862464B3AB005381DC /* Language.swift */,
+				5689C3882464B44D005381DC /* LanguageType.swift */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 		56A3EB622476BD030061D2DE /* Style */ = {
@@ -428,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				BFB2624A24E60450002857D6 /* Enum */,
+				BFB2624924E603C8002857D6 /* Model */,
 				BFB2623D24E5F9EB002857D6 /* View */,
 				BFB2623C24E5F9E2002857D6 /* ViewModel */,
 			);
@@ -466,7 +478,6 @@
 			isa = PBXGroup;
 			children = (
 				56A23E442462220800992CB1 /* SetupProtocol.swift */,
-				BF7A8AFE24E8370600D538EE /* DescriptionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -541,6 +552,14 @@
 				56639EB424672BF900D559DC /* Int+idDefault.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BFB2624924E603C8002857D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				565C088C246792AF00890D33 /* Language */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BFB2624A24E60450002857D6 /* Enum */ = {
@@ -884,8 +903,10 @@
 				561C44382475E27000A4424F /* UserDefaultsUtils.swift in Sources */,
 				561D4F202468BBF1009EB7B2 /* Relationship.swift in Sources */,
 				56639EB524672BF900D559DC /* Int+idDefault.swift in Sources */,
+				5689C3892464B44D005381DC /* LanguageType.swift in Sources */,
 				561D4F1E2468B73E009EB7B2 /* EthnicGroup.swift in Sources */,
 				56B26D442479E204001A7578 /* NotificationIdentifier.swift in Sources */,
+				5689C3872464B3AB005381DC /* Language.swift in Sources */,
 				56381D5F246892CD00EEC3AD /* NameData.swift in Sources */,
 				56642BAC2477418900962E68 /* SettingsViewController.swift in Sources */,
 				56B8E7A42460F965005B273C /* PersonViewController.swift in Sources */,
@@ -902,7 +923,6 @@
 				563E4F77247B179D00D419F1 /* FilterCollectionViewCell.swift in Sources */,
 				56639EB3246722C800D559DC /* Person.swift in Sources */,
 				564ED37A24717BD500C59EA5 /* HistoryViewModel.swift in Sources */,
-				BF7A8AFF24E8370600D538EE /* DescriptionProtocol.swift in Sources */,
 				56B8E7AB2460FA5F005B273C /* UIViewController+LoadNib.swift in Sources */,
 				56E8B5AF2473801D0053547D /* SettingTableViewCell.swift in Sources */,
 				565EC42A246E0EC000D0F509 /* TableViewCellIdentifier.swift in Sources */,

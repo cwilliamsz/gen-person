@@ -13,6 +13,82 @@ enum StringIdentifier: String, CustomIdentifier {
     case commonDateFormat = "common_date_format"
     case commonFormatToDate = "common_format_to_date"
 
+    // MARK: - English
+    case commonRandomEng = "common_random_eng"
+    case commonGenerateEng = "common_generate_eng"
+    case commonNewEng = "common_new_eng"
+    case commonAllEng = "common_all_eng"
+
+    case phonePrefixEng = "phone_prefix_eng"
+
+    case personTitleEng = "person_title_eng"
+    case personNameEng = "person_name_eng"
+    case personDocumentEng = "person_document_eng"
+    case personDateOfBirthEng = "person_date_of_birth_eng"
+    case personSexOfBirthEng = "person_sex_of_birth_eng"
+    case personEthnicGroupEng = "person_group_ethnic_eng"
+    case personContactEng = "person_contact_eng"
+    case personRelationshipEng = "person_relationship_eng"
+    case personPhoneEng = "person_phone_eng"
+    case personEmailEng = "person_email_eng"
+    case personAgeYearEng = "person_age_year_eng"
+    case personAgeMonthEng = "person_age_month_eng"
+    case personAgeDayEng = "person_age_day_eng"
+
+    case historyTitleEng = "history_title_eng"
+
+    case buttonCreateEng = "button_create_eng"
+    case buttonSettingsEng = "button_settings_eng"
+
+    case settingsTitleEng = "settings_title_eng"
+
+    case genderTitleEng = "gender_title_eng"
+    case genderFemaleEng = "gender_female_eng"
+    case genderMasculineEng = "gender_masculine_eng"
+
+    case ethnicGroupWhiteEng = "ethnic_group_white_eng"
+    case ethnicGroupBlackEng = "ethnic_group_black_eng"
+    case ethnicGroupBrownEng = "ethnic_group_brown_eng"
+    case ethnicGroupRedEng = "ethnic_group_red_eng"
+    case ethnicGroupYellowEng = "ethnic_group_yellow_eng"
+
+    case relationshipMotherEng = "relationship_mother_eng"
+    case relationshipSisterEng = "relationship_sister_eng"
+    case relationshipDaughterEng = "relationship_daughter_eng"
+
+    case relationshipFatherEng = "relationship_father_eng"
+    case relationshipBrotherEng = "relationship_brother_eng"
+    case relationshipSonEng = "relationship_son_eng"
+
+    case relationshipFriendEng = "relationship_friend_eng"
+    case relationshipSpouseEng = "relationship_spouse_eng"
+    case relationshipPartnerEng = "relationship_partner_eng"
+    case relationshipParentEng = "relationship_parent_eng"
+    case relationshipOtherEng = "relationship_other_eng"
+
+    case nationalityTitleEng = "nationality_title_eng"
+    case nationalityUSAEng = "nationality_usa_eng"
+    case nationalityBREng = "nationality_br_eng"
+
+    case ageRangeTitleEng = "age_range_title_eng"
+    case ageRangeOlderEng = "age_range_older_eng"
+    case ageRangeMinorEng = "age_range_minor_eng"
+    case ageRangeBabyEng = "age_range_baby_eng"
+    case ageRangeChildEng = "age_range_child_eng"
+    case ageRangeTeenEng = "age_range_teen_eng"
+    case ageRangeYoungEng = "age_range_young_eng"
+    case ageRangeAdultEng = "age_range_adult_eng"
+    case ageRangeElderlyEng = "age_range_elderly_eng"
+
+    case idiomTitleEng = "idiom_title_eng"
+    case idiomPortugueseEng = "idiom_portuguese_eng"
+    case idiomEnglishEng = "idiom_english_eng"
+
+    case filterTitleEng = "filter_title_eng"
+
+    case searchTitleEng = "search_placeholder_eng"
+
+    // MARK: - Portuguese
     case commonRandomPt = "common_random_pt"
     case commonGeneratePt = "common_generate_pt"
     case commonNewPt = "common_new_pt"

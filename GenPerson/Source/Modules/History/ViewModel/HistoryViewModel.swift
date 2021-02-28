@@ -42,6 +42,7 @@ class HistoryViewModel {
 
 // MARK: TableView
 extension HistoryViewModel {
+
     var heightForRow: CGFloat {
         return 60
     }
@@ -57,10 +58,12 @@ extension HistoryViewModel {
 
         return results[row]
     }
+
 }
 
 // MARK: Search
 extension HistoryViewModel {
+
     var searchText: String {
         return _searchText
     }
@@ -85,6 +88,7 @@ extension HistoryViewModel {
 
 // MARK: Filter
 extension HistoryViewModel {
+
     var filterSelected: SettingOption {
         return _filterSelected
     }
@@ -93,7 +97,7 @@ extension HistoryViewModel {
         _filterSelected = selected
     }
 
-    func optionSelected(_ settingOption: SettingOption? = nil) -> DetailProtocol? {
+    func optionSelected(_ settingOption: SettingOption? = nil) -> Any? {
         let value = settingOption != nil ? settingOption : _filterSelected
         switch value {
         case .ageRange:
@@ -102,8 +106,8 @@ extension HistoryViewModel {
             return _genderSelected
         case .nationality:
             return _nationalitySelected
-        case .none:
-            return value
+        default:
+            return nil
         }
     }
 
@@ -126,10 +130,12 @@ extension HistoryViewModel {
         let country     = _nationalitySelected == .random ? 0 : 1
         return ageRange + gender + country
     }
+
 }
 
 // MARK: CollectionView Filter
 extension HistoryViewModel {
+
     func numberOfItemsInSection(tag: Int) -> Int {
         guard tag != 1 else {
             return _sectionsFilter.count
@@ -142,6 +148,8 @@ extension HistoryViewModel {
             return _genders.count
         case .nationality:
             return _nationalities.count
+        default:
+            return 0
         }
     }
 
@@ -157,6 +165,9 @@ extension HistoryViewModel {
             return _genders[row]
         case .nationality:
             return _nationalities[row]
+        default:
+            return nil
         }
     }
+
 }

@@ -202,12 +202,23 @@ extension HistoryViewController: SetupProtocol {
 
     func applyLanguage() {
         let numberOfFiltersActive = viewModel.numberOfFiltersActive()
-        self.title = String(identifier: StringIdentifier.historyTitlePt)
-        searchBar.placeholder = String(identifier: StringIdentifier.searchTitlePt)
+        switch Language.current {
+        case .english:
+            self.title = String(identifier: StringIdentifier.historyTitleEng)
+            searchBar.placeholder = String(identifier: StringIdentifier.searchTitleEng)
 
-        let title = "\(String(identifier: StringIdentifier.filterTitlePt))(\(numberOfFiltersActive))"
-        buttonFilter.setTitle(title, for: .normal)
+            let title = "\(String(identifier: StringIdentifier.filterTitleEng))(\(numberOfFiltersActive))"
+            buttonFilter.setTitle(title, for: .normal)
+
+        case .portuguese:
+            self.title = String(identifier: StringIdentifier.historyTitlePt)
+            searchBar.placeholder = String(identifier: StringIdentifier.searchTitlePt)
+
+            let title = "\(String(identifier: StringIdentifier.filterTitlePt))(\(numberOfFiltersActive))"
+            buttonFilter.setTitle(title, for: .normal)
+        }
     }
+
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -279,7 +290,7 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
                                                          tag: collectionView.tag) as? SettingOption {
                 cell.config(settingOption: settingOption,
                             selected: viewModel.filterSelected,
-                            item: viewModel.optionSelected(settingOption) as! DetailProtocol)
+                            item: viewModel.optionSelected(settingOption) as Any)
             }
 
             return cell

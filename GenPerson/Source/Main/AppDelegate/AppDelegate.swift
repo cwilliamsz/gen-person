@@ -31,17 +31,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.overrideUserInterfaceStyle = .light
 
-        personVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewPt),
-                                           image: UIImage(identifier: ImageIdentifier.iconAdd),
-                                           tag: 0)
+        switch Language.current {
+        case .portuguese:
+            personVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewPt),
+                                               image: UIImage(identifier: ImageIdentifier.iconAdd),
+                                               tag: 0)
 
-        historyVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.historyTitlePt),
-                                            image: UIImage(identifier: ImageIdentifier.iconHistory),
-                                            tag: 1)
+            historyVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.historyTitlePt),
+                                                image: UIImage(identifier: ImageIdentifier.iconHistory),
+                                                tag: 1)
 
-        settingsVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.settingsTitlePt),
-                                             image: UIImage(identifier: ImageIdentifier.iconSettings),
-                                             tag: 2)
+            settingsVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.settingsTitlePt),
+                                                 image: UIImage(identifier: ImageIdentifier.iconSettings),
+                                                 tag: 2)
+
+        case .english:
+            personVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.commonNewEng),
+                                               image: UIImage(identifier: ImageIdentifier.iconAdd),
+                                               tag: 0)
+
+            historyVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.historyTitleEng),
+                                                image: UIImage(identifier: ImageIdentifier.iconHistory),
+                                                tag: 1)
+
+            settingsVC.tabBarItem = UITabBarItem(title: String(identifier: StringIdentifier.settingsTitleEng),
+                                                 image: UIImage(identifier: ImageIdentifier.iconSettings),
+                                                 tag: 2)
+        }
 
         [personVC, historyVC, settingsVC].forEach { (viewController) in
             let navigationController = setNavigationController(for: viewController)

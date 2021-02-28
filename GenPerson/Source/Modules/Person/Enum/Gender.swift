@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Gender: Int, DetailProtocol {
+enum Gender: Int {
     case random     = 0
     case female     = 1
     case masculine  = 2
@@ -25,18 +25,31 @@ enum Gender: Int, DetailProtocol {
         return Gender(rawValue: UserDefaultsUtils.current(key: self.key)) ?? .random
     }
 
-    func title() -> String {
-        return String(identifier: StringIdentifier.genderTitlePt)
-    }
-
-    func description() -> String {
+    func raw() -> String {
         switch self {
         case .female:
-            return String(identifier: StringIdentifier.genderFemalePt)
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.genderFemaleEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.genderFemalePt)
+            }
+
         case .masculine:
-            return String(identifier: StringIdentifier.genderMasculinePt)
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.genderMasculineEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.genderMasculinePt)
+            }
+
         case .random:
-            return String(identifier: StringIdentifier.commonRandomPt)
+            switch Language.current {
+            case .english:
+                return String(identifier: StringIdentifier.commonRandomEng)
+            case .portuguese:
+                return String(identifier: StringIdentifier.commonRandomPt)
+            }
         }
     }
 }

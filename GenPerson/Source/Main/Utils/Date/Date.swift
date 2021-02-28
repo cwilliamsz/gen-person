@@ -25,11 +25,26 @@ extension Date {
         let isBaby = years == 0
 
         if years > 0 {
-            return (years, String(identifier: StringIdentifier.personAgeYearPt), isBaby)
+            switch Language.current {
+            case .portuguese:
+                return (years, String(identifier: StringIdentifier.personAgeYearPt), isBaby)
+            case .english:
+                return (years, String(identifier: StringIdentifier.personAgeYearEng), isBaby)
+            }
         } else if months > 0 {
-            return (months, String(identifier: StringIdentifier.personAgeMonthPt), isBaby)
+            switch Language.current {
+            case .portuguese:
+                return (months, String(identifier: StringIdentifier.personAgeMonthPt), isBaby)
+            case .english:
+                return (months, String(identifier: StringIdentifier.personAgeMonthEng), isBaby)
+            }
         } else {
-            return (days, String(identifier: StringIdentifier.personAgeDayPt), isBaby)
+            switch Language.current {
+            case .portuguese:
+                return (days, String(identifier: StringIdentifier.personAgeDayPt), isBaby)
+            case .english:
+                return (days, String(identifier: StringIdentifier.personAgeDayEng), isBaby)
+            }
         }
     }
 
